@@ -10,7 +10,6 @@
 		BCAD06A5261938D3007C89CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A4261938D3007C89CA /* AppDelegate.swift */; };
 		BCAD06A7261938D3007C89CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A6261938D3007C89CA /* SceneDelegate.swift */; };
 		BCAD06A9261938D3007C89CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A8261938D3007C89CA /* ViewController.swift */; };
-		BCAD06AC261938D3007C89CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAD06AA261938D3007C89CA /* Main.storyboard */; };
 		BCAD06AE261938D5007C89CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCAD06AD261938D5007C89CA /* Assets.xcassets */; };
 		BCAD06B1261938D5007C89CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAD06AF261938D5007C89CA /* LaunchScreen.storyboard */; };
 		BCAD06BC261938D5007C89CA /* SharkCollectionKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06BB261938D5007C89CA /* SharkCollectionKitTests.swift */; };
@@ -39,10 +38,9 @@
 		BCAD06A4261938D3007C89CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAD06A6261938D3007C89CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BCAD06A8261938D3007C89CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BCAD06AB261938D3007C89CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCAD06AD261938D5007C89CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCAD06B0261938D5007C89CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BCAD06B2261938D5007C89CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCAD06B2261938D5007C89CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SharkCollectionKit/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		BCAD06B7261938D5007C89CA /* SharkCollectionKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharkCollectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAD06BB261938D5007C89CA /* SharkCollectionKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkCollectionKitTests.swift; sourceTree = "<group>"; };
 		BCAD06BD261938D5007C89CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,13 +97,9 @@
 		BCAD06A3261938D3007C89CA /* SharkCollectionKit */ = {
 			isa = PBXGroup;
 			children = (
-				BCAD06A4261938D3007C89CA /* AppDelegate.swift */,
-				BCAD06A6261938D3007C89CA /* SceneDelegate.swift */,
-				BCAD06A8261938D3007C89CA /* ViewController.swift */,
-				BCAD06AA261938D3007C89CA /* Main.storyboard */,
-				BCAD06AD261938D5007C89CA /* Assets.xcassets */,
-				BCAD06AF261938D5007C89CA /* LaunchScreen.storyboard */,
-				BCAD06B2261938D5007C89CA /* Info.plist */,
+				BCAD06DA26193952007C89CA /* App Delegate */,
+				BCAD06E12619395F007C89CA /* ViewControllers */,
+				BCAD06E526193995007C89CA /* Resources */,
 			);
 			path = SharkCollectionKit;
 			sourceTree = "<group>";
@@ -126,6 +120,33 @@
 				BCAD06C8261938D5007C89CA /* Info.plist */,
 			);
 			path = SharkCollectionKitUITests;
+			sourceTree = "<group>";
+		};
+		BCAD06DA26193952007C89CA /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BCAD06A4261938D3007C89CA /* AppDelegate.swift */,
+				BCAD06A6261938D3007C89CA /* SceneDelegate.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		BCAD06E12619395F007C89CA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BCAD06A8261938D3007C89CA /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BCAD06E526193995007C89CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BCAD06AD261938D5007C89CA /* Assets.xcassets */,
+				BCAD06AF261938D5007C89CA /* LaunchScreen.storyboard */,
+				BCAD06B2261938D5007C89CA /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +254,6 @@
 			files = (
 				BCAD06B1261938D5007C89CA /* LaunchScreen.storyboard in Resources */,
 				BCAD06AE261938D5007C89CA /* Assets.xcassets in Resources */,
-				BCAD06AC261938D3007C89CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +316,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BCAD06AA261938D3007C89CA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCAD06AB261938D3007C89CA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BCAD06AF261938D5007C89CA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +450,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZB4N2WUDHX;
-				INFOPLIST_FILE = SharkCollectionKit/Info.plist;
+				INFOPLIST_FILE = SharkCollectionKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +469,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZB4N2WUDHX;
-				INFOPLIST_FILE = SharkCollectionKit/Info.plist;
+				INFOPLIST_FILE = SharkCollectionKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

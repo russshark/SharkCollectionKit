@@ -68,7 +68,6 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
         super.init(frame: frame)
         setConstraints()
         styleView()
-
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

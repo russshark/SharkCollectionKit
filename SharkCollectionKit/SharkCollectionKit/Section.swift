@@ -34,6 +34,14 @@ extension Section: SectionT {
         item.parent = collectionView
         
         guard let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
+        
+        let widthId = "cell.width"
+        cell.contentView.removeConstraints(cell.contentView.constraints.filter({ $0.identifier == widthId }))
+        cell.contentView.widthAnchor.constraint(equalToConstant: collectionView.bounds.inset(by: collectionView.contentInset).width).with({
+            $0.priority = UILayoutPriority(999)
+            $0.isActive = true
+            $0.identifier = widthId
+        })
    
         return (cell, item)
     }

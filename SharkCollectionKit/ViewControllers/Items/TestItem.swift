@@ -68,6 +68,7 @@ final private class TestCell: UICollectionViewCell, BindableCell {
         contentView.layer.cornerRadius = 5
         contentView.clipsToBounds = true
         contentView.layer.masksToBounds = true
+        label.numberOfLines = 0
     }
 
     private func setConstraints(){

@@ -9,21 +9,20 @@ import UIKit
 
 class PagingCollectionViewLayout: UICollectionViewFlowLayout {
     
-    // MARK: - Init
     
-    init(spacing: CGFloat, inset: CGFloat) {
+    private var numberOfItemsPerPage: CGFloat = 1
+    var pageVelocity: CGFloat = 1.5
+
+    // MARK: - Init
+        
+    override init() {
         super.init()
         scrollDirection = .horizontal
-        minimumLineSpacing = spacing
-        sectionInset = UIEdgeInsets(top: .zero, left: inset, bottom: .zero, right: inset)
     }
-    
+
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
     // MARK: -
-    
-    var velocityThresholdPerPage: CGFloat = 2.0
-    var numberOfItemsPerPage: CGFloat = 1
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else { return proposedContentOffset }
@@ -33,15 +32,9 @@ class PagingCollectionViewLayout: UICollectionViewFlowLayout {
         let currentPage: CGFloat
         let speed: CGFloat
         
-        if scrollDirection == .horizontal {
-            pageLength = (self.itemSize.width + self.minimumLineSpacing) * numberOfItemsPerPage
-            approxPage = collectionView.contentOffset.x / pageLength
-            speed = velocity.x
-        } else {
-            pageLength = (self.itemSize.height + self.minimumLineSpacing) * numberOfItemsPerPage
-            approxPage = collectionView.contentOffset.y / pageLength
-            speed = velocity.y
-        }
+        pageLength = (itemSize.width + minimumLineSpacing) * numberOfItemsPerPage
+        approxPage = collectionView.contentOffset.x / pageLength
+        speed = velocity.x
         
         if speed < 0 {
             currentPage = ceil(approxPage)
@@ -52,22 +45,14 @@ class PagingCollectionViewLayout: UICollectionViewFlowLayout {
         }
         
         guard speed != 0 else {
-            if scrollDirection == .horizontal {
-                return CGPoint(x: currentPage * pageLength, y: 0)
-            } else {
-                return CGPoint(x: 0, y: currentPage * pageLength)
-            }
+            return CGPoint(x: currentPage * pageLength, y: 0)
         }
         
         var nextPage: CGFloat = currentPage + (speed > 0 ? 1 : -1)
         
-        let increment = speed / velocityThresholdPerPage
+        let increment = speed / pageVelocity
         nextPage += (speed < 0) ? ceil(increment) : floor(increment)
         
-        if scrollDirection == .horizontal {
-            return CGPoint(x: nextPage * pageLength, y: 0)
-        } else {
-            return CGPoint(x: 0, y: nextPage * pageLength)
-        }
+        return CGPoint(x: nextPage * pageLength, y: 0)
     }
 }

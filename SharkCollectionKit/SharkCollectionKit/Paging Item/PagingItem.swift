@@ -10,9 +10,9 @@ import UIKit
 final class PagingItem: VItem {
 
     let items: [HItem]
-    
-    var didSelect: (() -> Void)?
-
+    var spacing: CGFloat = .zero
+    var inset: CGFloat = .zero
+    var velocity: CGFloat = 1.5
     
     //MARK: - Init
     
@@ -20,15 +20,31 @@ final class PagingItem: VItem {
         self.items = items
     }
     
+    var parent: UICollectionView?
+    
     var binder: ItemCellBinderType {
         return ItemCellBinder<PagingCell, PagingItem>.init(item: self)
     }
-    
-    var parent: UICollectionView?
-    
+
     var estimatedHeight: CGFloat {
-        // This gets the max height from all the cells we want to display
         return items.compactMap({ $0.size.height }).max() ?? .zero
+    }
+    
+    // MARK: - Chaining
+    
+    func setSpacing(_ spacing: CGFloat) -> Self {
+        self.spacing = spacing
+        return self
+    }
+    
+    func setInset(_ inset: CGFloat) -> Self {
+        self.inset = inset
+        return self
+    }
+    
+    func setVelocity(_ velocity: CGFloat) -> Self {
+        self.velocity = velocity
+        return self
     }
 }
 
@@ -36,7 +52,7 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
     
     //MARK: - UI
     
-    lazy var layout = PagingCollectionViewLayout(spacing: 30, inset: 0)
+    lazy var layout = PagingCollectionViewLayout()
     
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -61,12 +77,16 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
 
     var item: PagingItem? {
         didSet {
-            guard let parent = item?.parent, let height = item?.estimatedHeight else {
+            guard let item = item, let parent = item.parent else {
                 assertionFailure("Item has no parent UICollectionView assocaiated with it. We need this to set the item size")
                 return
             }
+            layout.sectionInset = UIEdgeInsets(top: .zero, left: item.inset, bottom: .zero, right: item.inset)
+            layout.minimumLineSpacing = item.spacing
+            layout.pageVelocity = item.velocity
             
-            layout.itemSize = .init(width: parent.bounds.inset(by: parent.contentInset).width, height: height)
+            let adjustedWidth = parent.bounds.inset(by: parent.contentInset).width - (item.inset * 2.0)
+            layout.itemSize = .init(width: adjustedWidth, height: item.estimatedHeight)
         }
     }
     

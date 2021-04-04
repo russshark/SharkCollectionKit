@@ -52,8 +52,12 @@ extension ViewController: CollectionDatasource {
     func sections() -> [Section] {
         Section {
             PagingItem(items: [SettingsItem(text: "1"), SettingsItem(text: "2"), SettingsItem(text: "3")])
+            .setSpacing(40)
+            .setInset(30)
+            .setVelocity(0.8)
+            
             TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
-            TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            TestItem(text: "ThisThis is a test  fb his is a test  fb bbd fbbThis is a test  fb his is a test  fb bbd fbbThis is a test  fb his is a test  fb bbd fbbThis is a test  fb his is a test  fb bbd fbb is a test  fb his is a test  fb bbd fbb")
             
             
             TestItem(text: "This is a test  fb his is a test  fb bbd fbb")

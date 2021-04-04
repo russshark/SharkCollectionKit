@@ -54,7 +54,7 @@ extension ViewController: CollectionDatasource {
             PagingItem(items: [SettingsItem(text: "1"), SettingsItem(text: "2"), SettingsItem(text: "3")])
             .setSpacing(40)
             .setInset(30)
-            .setVelocity(0.8)
+            .setVelocity(2.5)
             
             TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
             TestItem(text: "ThisThis is a test  fb his is a test  fb bbd fbbThis is a test  fb his is a test  fb bbd fbbThis is a test  fb his is a test  fb bbd fbbThis is a test  fb his is a test  fb bbd fbb is a test  fb his is a test  fb bbd fbb")
@@ -106,7 +106,7 @@ extension ViewController: CollectionDatasource {
             PagingItem(items: [SettingsItem(text: "1"), SettingsItem(text: "2"), SettingsItem(text: "3")])
             .setSpacing(40)
             .setInset(30)
-            .setVelocity(0.8)
+            .setVelocity(3.8)
         }
     }
 }

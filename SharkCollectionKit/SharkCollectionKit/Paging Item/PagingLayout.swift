@@ -35,7 +35,7 @@ class PagingCollectionViewLayout: UICollectionViewFlowLayout {
         pageLength = (itemSize.width + minimumLineSpacing) * numberOfItemsPerPage
         approxPage = collectionView.contentOffset.x / pageLength
         speed = velocity.x
-        
+
         if speed < 0 {
             currentPage = ceil(approxPage)
         } else if speed > 0 {

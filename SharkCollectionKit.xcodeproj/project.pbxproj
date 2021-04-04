@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BCA31A4B261A4F780050A483 /* PagingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A4A261A4F780050A483 /* PagingItem.swift */; };
+		BCA31A5D261A50800050A483 /* PagingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A5C261A50800050A483 /* PagingLayout.swift */; };
+		BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A62261A554B0050A483 /* SettingsItem.swift */; };
 		BCAD06A5261938D3007C89CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A4261938D3007C89CA /* AppDelegate.swift */; };
 		BCAD06A7261938D3007C89CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A6261938D3007C89CA /* SceneDelegate.swift */; };
 		BCAD06A9261938D3007C89CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A8261938D3007C89CA /* ViewController.swift */; };
@@ -15,7 +18,7 @@
 		BCAD06BC261938D5007C89CA /* SharkCollectionKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06BB261938D5007C89CA /* SharkCollectionKitTests.swift */; };
 		BCAD06C7261938D5007C89CA /* SharkCollectionKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06C6261938D5007C89CA /* SharkCollectionKitUITests.swift */; };
 		BCAD06EB26193B36007C89CA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06EA26193B36007C89CA /* Section.swift */; };
-		BCF59BA526193BBB009C11AF /* ItemArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA426193BBB009C11AF /* ItemArrayBuilder.swift */; };
+		BCF59BA526193BBB009C11AF /* ModelArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA426193BBB009C11AF /* ModelArrayBuilder.swift */; };
 		BCF59BA726193BD0009C11AF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA626193BD0009C11AF /* Item.swift */; };
 		BCF59BAA26195E81009C11AF /* ItemCellBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA926195E81009C11AF /* ItemCellBinder.swift */; };
 		BCF59BAD26196192009C11AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BAC26196192009C11AF /* Extensions.swift */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BCA31A4A261A4F780050A483 /* PagingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingItem.swift; sourceTree = "<group>"; };
+		BCA31A5C261A50800050A483 /* PagingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingLayout.swift; sourceTree = "<group>"; };
+		BCA31A62261A554B0050A483 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		BCAD06A1261938D3007C89CA /* SharkCollectionKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharkCollectionKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAD06A4261938D3007C89CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAD06A6261938D3007C89CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +62,7 @@
 		BCAD06C6261938D5007C89CA /* SharkCollectionKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkCollectionKitUITests.swift; sourceTree = "<group>"; };
 		BCAD06C8261938D5007C89CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCAD06EA26193B36007C89CA /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		BCF59BA426193BBB009C11AF /* ItemArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemArrayBuilder.swift; sourceTree = "<group>"; };
+		BCF59BA426193BBB009C11AF /* ModelArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelArrayBuilder.swift; sourceTree = "<group>"; };
 		BCF59BA626193BD0009C11AF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		BCF59BA926195E81009C11AF /* ItemCellBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellBinder.swift; sourceTree = "<group>"; };
 		BCF59BAC26196192009C11AF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -90,6 +96,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BCA31A4F261A50260050A483 /* Paging Item */ = {
+			isa = PBXGroup;
+			children = (
+				BCA31A4A261A4F780050A483 /* PagingItem.swift */,
+				BCA31A5C261A50800050A483 /* PagingLayout.swift */,
+			);
+			path = "Paging Item";
+			sourceTree = "<group>";
+		};
+		BCA31A61261A553B0050A483 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				BCF59BAE261963BE009C11AF /* TestItem.swift */,
+				BCA31A62261A554B0050A483 /* SettingsItem.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		BCAD0698261938D3007C89CA = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				BCAD06A8261938D3007C89CA /* ViewController.swift */,
-				BCF59BAE261963BE009C11AF /* TestItem.swift */,
+				BCA31A61261A553B0050A483 /* Items */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -173,7 +197,8 @@
 			children = (
 				BCF59BB226196AAF009C11AF /* CollectionController.swift */,
 				BCAD06EA26193B36007C89CA /* Section.swift */,
-				BCF59BA426193BBB009C11AF /* ItemArrayBuilder.swift */,
+				BCF59BA426193BBB009C11AF /* ModelArrayBuilder.swift */,
+				BCA31A4F261A50260050A483 /* Paging Item */,
 				BCF59BA826195E60009C11AF /* Items */,
 			);
 			path = SharkCollectionKit;
@@ -332,9 +357,12 @@
 				BCAD06A5261938D3007C89CA /* AppDelegate.swift in Sources */,
 				BCF59BAD26196192009C11AF /* Extensions.swift in Sources */,
 				BCAD06A7261938D3007C89CA /* SceneDelegate.swift in Sources */,
+				BCA31A5D261A50800050A483 /* PagingLayout.swift in Sources */,
 				BCF59BA726193BD0009C11AF /* Item.swift in Sources */,
 				BCF59BAA26195E81009C11AF /* ItemCellBinder.swift in Sources */,
-				BCF59BA526193BBB009C11AF /* ItemArrayBuilder.swift in Sources */,
+				BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */,
+				BCA31A4B261A4F780050A483 /* PagingItem.swift in Sources */,
+				BCF59BA526193BBB009C11AF /* ModelArrayBuilder.swift in Sources */,
 				BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */,
 				BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */,
 			);

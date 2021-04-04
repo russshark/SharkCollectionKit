@@ -15,17 +15,19 @@ class Section {
     
     // MARK: -
     
-    var collectionView: UICollectionView?
+    private var referenceCollectionView: UICollectionView?
     
     // MARK: - Init
 
-    init(@ItemArrayBuilder<Item> items: () -> [Item]) {
+    init(@ModelArrayBuilder<Item> items: () -> [Item]) {
         self.items = items()
     }
     
     // MARK: - Interface
 
     func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)? {
+        self.referenceCollectionView = collectionView
+        
         guard let item = items[safe: indexPath.row],
               let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
         
@@ -35,10 +37,5 @@ class Section {
     func numberOfItems() -> Int {
         return items.count
     }
-    
-    func set(collectionView: UICollectionView?){
-        self.collectionView = collectionView
-    }
-
 
 }

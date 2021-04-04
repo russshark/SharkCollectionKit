@@ -50,6 +50,7 @@ extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
         Section {
+            PagingItem(items: [SettingsItem(text: "1"), SettingsItem(text: "2"), SettingsItem(text: "3")], parent: collectionView)
             TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
             TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
             

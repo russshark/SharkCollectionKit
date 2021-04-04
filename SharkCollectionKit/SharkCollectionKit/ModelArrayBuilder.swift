@@ -1,5 +1,5 @@
 //
-//  ItemArrayBuilder.swift
+//  ModelArrayBuilder.swift
 //  SharkCollectionKit
 //
 //  Created by Russell Warwick on 04/04/2021.
@@ -8,7 +8,7 @@
 import Foundation
 
 @_functionBuilder
-struct ItemArrayBuilder<I> {
+struct ModelArrayBuilder<I> {
 
     typealias Expression = I
     typealias Component = [I]

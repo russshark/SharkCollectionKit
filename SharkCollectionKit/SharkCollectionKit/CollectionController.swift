@@ -12,7 +12,7 @@ protocol CollectionDelegate: AnyObject {
 }
 
 protocol CollectionDatasource: AnyObject {
-    @ItemArrayBuilder<Section> func sections() -> [Section]
+    @ModelArrayBuilder<Section> func sections() -> [Section]
 }
 
 final class CollectionController: NSObject {
@@ -38,13 +38,7 @@ final class CollectionController: NSObject {
     // MARK: - Private
     
     private var sections: [Section] {
-        let sections = datasource?.sections() ?? []
-        
-        for index in sections.indices {
-            sections[safe: index]?.set(collectionView: collectionView)
-        }
-
-        return sections
+        return datasource?.sections() ?? []
     }
 }
 
@@ -82,4 +76,8 @@ extension CollectionController: UICollectionViewDelegate {
         guard let (_, item) = sections[safe: indexPath.section]?.cellItem(forIndexPath: indexPath, collectionView: collectionView) else { return }
         delegate?.didSelectItem(item: item, indexPath: indexPath)
     }
+    
+
 }
+
+

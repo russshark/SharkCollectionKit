@@ -11,12 +11,11 @@ class PagingCollectionViewLayout: UICollectionViewFlowLayout {
     
     // MARK: - Init
     
-    init(spacing: CGFloat, inset: CGFloat, size: CGSize) {
+    init(spacing: CGFloat, inset: CGFloat) {
         super.init()
         scrollDirection = .horizontal
         minimumLineSpacing = spacing
         sectionInset = UIEdgeInsets(top: .zero, left: inset, bottom: .zero, right: inset)
-        itemSize = size
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

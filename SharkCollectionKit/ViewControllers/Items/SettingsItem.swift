@@ -8,6 +8,8 @@
 import UIKit
 
 final class SettingsItem: HItem {
+    
+    
 
     let text: String
     
@@ -23,6 +25,8 @@ final class SettingsItem: HItem {
     var binder: ItemCellBinderType {
         return ItemCellBinder<SettingsCell, SettingsItem>.init(item: self)
     }
+    
+    var parent: UICollectionView?
     
     var size: CGSize = .init(width: 340, height: 100)
 }

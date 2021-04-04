@@ -10,21 +10,21 @@ import UIKit
 final class PagingItem: VItem {
 
     let items: [HItem]
-    let parent: UICollectionView
     
     var didSelect: (() -> Void)?
 
     
     //MARK: - Init
     
-    init(items: [HItem], parent: UICollectionView){
+    init(items: [HItem]){
         self.items = items
-        self.parent = parent
     }
     
     var binder: ItemCellBinderType {
         return ItemCellBinder<PagingCell, PagingItem>.init(item: self)
     }
+    
+    var parent: UICollectionView?
     
     var estimatedHeight: CGFloat {
         // This gets the max height from all the cells we want to display
@@ -36,9 +36,9 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
     
     //MARK: - UI
     
+    lazy var layout = PagingCollectionViewLayout(spacing: 30, inset: 0)
+    
     lazy var collectionView: UICollectionView = {
-        let layout = PagingCollectionViewLayout(spacing: 30, inset: 0, size: .init(width: 340, height: 100))
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.decelerationRate = .fast
@@ -59,7 +59,16 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
     
     //MARK: - Item
 
-    var item: PagingItem?
+    var item: PagingItem? {
+        didSet {
+            guard let parent = item?.parent, let height = item?.estimatedHeight else {
+                assertionFailure("Item has no parent UICollectionView assocaiated with it. We need this to set the item size")
+                return
+            }
+            
+            layout.itemSize = .init(width: parent.bounds.inset(by: parent.contentInset).width, height: height)
+        }
+    }
     
     //MARK: - Configure
     

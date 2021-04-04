@@ -36,6 +36,7 @@ final class ViewController: UIViewController {
     private func setConstraints(){
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: .zero),
@@ -50,7 +51,7 @@ extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
         Section {
-            PagingItem(items: [SettingsItem(text: "1"), SettingsItem(text: "2"), SettingsItem(text: "3")], parent: collectionView)
+            PagingItem(items: [SettingsItem(text: "1"), SettingsItem(text: "2"), SettingsItem(text: "3")])
             TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
             TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
             

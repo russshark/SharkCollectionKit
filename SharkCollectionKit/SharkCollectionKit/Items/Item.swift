@@ -5,10 +5,11 @@
 //  Created by Russell Warwick on 04/04/2021.
 //
 
-import CoreGraphics
+import UIKit
 
 protocol Item {
     var binder: ItemCellBinderType { get }
+    var parent: UICollectionView? { get set }
 }
 
 protocol VItem: Item {

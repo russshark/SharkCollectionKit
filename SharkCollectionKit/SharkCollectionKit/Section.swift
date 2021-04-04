@@ -19,26 +19,22 @@ class Section {
     
     let items: [VItem]
     
-    // MARK: -
-    
-    private var referenceCollectionView: UICollectionView?
-    
     // MARK: - Init
 
     init(@ModelArrayBuilder<VItem> items: () -> [VItem]) {
         self.items = items()
     }
-
 }
 
 extension Section: SectionT {
     
     func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)? {
-        self.referenceCollectionView = collectionView
         
-        guard let item = items[safe: indexPath.row],
-              let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
+        guard var item = items[safe: indexPath.row] else { return nil }
+        item.parent = collectionView
         
+        guard let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
+   
         return (cell, item)
     }
     
@@ -47,10 +43,7 @@ extension Section: SectionT {
     }
     
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize {
-        
-        referenceCollectionView = collectionView
-        
-        guard let item = items[safe: row], let collectionView = referenceCollectionView else { return .zero }
+        guard let item = items[safe: row] else { return .zero }
         let width = collectionView.bounds.inset(by: collectionView.contentInset).width
         return CGSize(width: width, height: item.estimatedHeight)
     }

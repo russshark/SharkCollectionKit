@@ -76,12 +76,12 @@ extension CollectionController: UICollectionViewDelegate {
         guard let (_, item) = sections[safe: indexPath.section]?.cellItem(forIndexPath: indexPath, collectionView: collectionView) else { return }
         delegate?.didSelectItem(item: item, indexPath: indexPath)
     }
-    
-    
-
 }
 
 extension CollectionController: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return sections[safe: indexPath.section]?.size(forRow: indexPath.row, collectionView: collectionView) ?? .zero
     }

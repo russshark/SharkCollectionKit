@@ -24,6 +24,8 @@ final class TestItem: VItem {
         return ItemCellBinder<TestCell, TestItem>.init(item: self)
     }
     
+    var parent: UICollectionView?
+    
     var estimatedHeight: CGFloat = 50.0
 }
 

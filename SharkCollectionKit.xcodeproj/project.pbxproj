@@ -14,6 +14,14 @@
 		BCAD06B1261938D5007C89CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAD06AF261938D5007C89CA /* LaunchScreen.storyboard */; };
 		BCAD06BC261938D5007C89CA /* SharkCollectionKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06BB261938D5007C89CA /* SharkCollectionKitTests.swift */; };
 		BCAD06C7261938D5007C89CA /* SharkCollectionKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06C6261938D5007C89CA /* SharkCollectionKitUITests.swift */; };
+		BCAD06EB26193B36007C89CA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06EA26193B36007C89CA /* Section.swift */; };
+		BCF59BA526193BBB009C11AF /* ItemArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA426193BBB009C11AF /* ItemArrayBuilder.swift */; };
+		BCF59BA726193BD0009C11AF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA626193BD0009C11AF /* Item.swift */; };
+		BCF59BAA26195E81009C11AF /* ItemCellBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA926195E81009C11AF /* ItemCellBinder.swift */; };
+		BCF59BAD26196192009C11AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BAC26196192009C11AF /* Extensions.swift */; };
+		BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BAE261963BE009C11AF /* TestItem.swift */; };
+		BCF59BB126196916009C11AF /* Stacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BB026196916009C11AF /* Stacks.swift */; };
+		BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BB226196AAF009C11AF /* CollectionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		BCAD06C2261938D5007C89CA /* SharkCollectionKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharkCollectionKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAD06C6261938D5007C89CA /* SharkCollectionKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkCollectionKitUITests.swift; sourceTree = "<group>"; };
 		BCAD06C8261938D5007C89CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCAD06EA26193B36007C89CA /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		BCF59BA426193BBB009C11AF /* ItemArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemArrayBuilder.swift; sourceTree = "<group>"; };
+		BCF59BA626193BD0009C11AF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		BCF59BA926195E81009C11AF /* ItemCellBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellBinder.swift; sourceTree = "<group>"; };
+		BCF59BAC26196192009C11AF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BCF59BAE261963BE009C11AF /* TestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestItem.swift; sourceTree = "<group>"; };
+		BCF59BB026196916009C11AF /* Stacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacks.swift; sourceTree = "<group>"; };
+		BCF59BB226196AAF009C11AF /* CollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				BCAD06A3261938D3007C89CA /* SharkCollectionKit */,
-				BCAD06BA261938D5007C89CA /* SharkCollectionKitTests */,
 				BCAD06C5261938D5007C89CA /* SharkCollectionKitUITests */,
 				BCAD06A2261938D3007C89CA /* Products */,
 			);
@@ -99,7 +114,10 @@
 			children = (
 				BCAD06DA26193952007C89CA /* App Delegate */,
 				BCAD06E12619395F007C89CA /* ViewControllers */,
+				BCF59BAB26196172009C11AF /* Extensions */,
 				BCAD06E526193995007C89CA /* Resources */,
+				BCAD06E926193AF4007C89CA /* SharkCollectionKit */,
+				BCAD06BA261938D5007C89CA /* SharkCollectionKitTests */,
 			);
 			path = SharkCollectionKit;
 			sourceTree = "<group>";
@@ -135,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				BCAD06A8261938D3007C89CA /* ViewController.swift */,
+				BCF59BAE261963BE009C11AF /* TestItem.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -147,6 +166,35 @@
 				BCAD06B2261938D5007C89CA /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BCAD06E926193AF4007C89CA /* SharkCollectionKit */ = {
+			isa = PBXGroup;
+			children = (
+				BCF59BB226196AAF009C11AF /* CollectionController.swift */,
+				BCAD06EA26193B36007C89CA /* Section.swift */,
+				BCF59BA426193BBB009C11AF /* ItemArrayBuilder.swift */,
+				BCF59BA826195E60009C11AF /* Items */,
+			);
+			path = SharkCollectionKit;
+			sourceTree = "<group>";
+		};
+		BCF59BA826195E60009C11AF /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				BCF59BA926195E81009C11AF /* ItemCellBinder.swift */,
+				BCF59BA626193BD0009C11AF /* Item.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		BCF59BAB26196172009C11AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BCF59BAC26196192009C11AF /* Extensions.swift */,
+				BCF59BB026196916009C11AF /* Stacks.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,9 +326,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCF59BB126196916009C11AF /* Stacks.swift in Sources */,
 				BCAD06A9261938D3007C89CA /* ViewController.swift in Sources */,
+				BCAD06EB26193B36007C89CA /* Section.swift in Sources */,
 				BCAD06A5261938D3007C89CA /* AppDelegate.swift in Sources */,
+				BCF59BAD26196192009C11AF /* Extensions.swift in Sources */,
 				BCAD06A7261938D3007C89CA /* SceneDelegate.swift in Sources */,
+				BCF59BA726193BD0009C11AF /* Item.swift in Sources */,
+				BCF59BAA26195E81009C11AF /* ItemCellBinder.swift in Sources */,
+				BCF59BA526193BBB009C11AF /* ItemArrayBuilder.swift in Sources */,
+				BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */,
+				BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

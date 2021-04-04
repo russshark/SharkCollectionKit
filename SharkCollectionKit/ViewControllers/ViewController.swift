@@ -8,11 +8,98 @@
 import UIKit
 
 final class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .blue
+    
+    // MARK: - UI
+    
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.autoSize())
+    
+    // MARK: -
+    
+    private lazy var collection = CollectionController(collectionView: collectionView)
+    
+    // MARK: - Init
+    
+    init(){
+        super.init(nibName: nil, bundle: nil)
+        setConstraints()
+        collection.datasource = self
+        collection.delegate = self
+        view.backgroundColor = .white
+        collectionView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        collectionView.alwaysBounceVertical = true
     }
-
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    // MARK: - Configure
+    
+    private func setConstraints(){
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: .zero),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: .zero),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: .zero),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .zero)
+        ])
+    }
 }
 
+extension ViewController: CollectionDatasource {
+    
+    func sections() -> [Section] {
+        Section {
+            TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            
+            
+            TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            
+            [TestItem(text: "This is a test  fb his is a test  fb bbd fbb"), TestItem(text: "This is a test  fb his is a test  fb bbd fbb")]
+            
+            
+            if view.backgroundColor == .white {
+                TestItem(text: "This is a test  fb his is a test  fb bbd fbb🍕")
+            } else {
+                TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+                TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+                TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            }
+        }
+        
+        Section {
+            TestItem(text: "🚀This is a test  fb his is a test  fb bbd fbb")
+            TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            
+            
+            TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            
+            [TestItem(text: "This is a test  fb his is a test  fb bbd fbb"), TestItem(text: "This is a test  fb his is a test  fb bbd fbb")]
+            
+            
+            if view.backgroundColor == .white {
+                TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            } else {
+                TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+                TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+                TestItem(text: "This is a test  fb his is a test  fb bbd fbb")
+            }
+        }
+    }
+}
+
+extension ViewController: CollectionDelegate {
+    
+    func bindItem(_ item: Item) {
+        if let item = item as? TestItem {
+            item.didSelect = {
+                print(item)
+            }
+        }
+    }
+    
+    func didSelectItem(item: Item, indexPath: IndexPath) {
+        print(indexPath)
+    }
+}

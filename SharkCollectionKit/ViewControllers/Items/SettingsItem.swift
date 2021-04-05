@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsItem: HItem {
+final class SettingsItem: NSObject, HItem {
     
     
 
@@ -66,7 +66,9 @@ final private class SettingsCell: UICollectionViewCell, BindableCell {
     }
 
     private func setConstraints(){
-        contentView.vstack(label)
+        contentView.vstack {
+            label
+        }
         
     }
 }

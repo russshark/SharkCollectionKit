@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Item {
+protocol Item: NSObject {
     var binder: ItemCellBinderType { get }
     var parent: UICollectionView? { get set }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PagingItem: VItem {
+final class PagingItem: NSObject, VItem {
 
     let items: [HItem]
     var spacing: CGFloat = .zero

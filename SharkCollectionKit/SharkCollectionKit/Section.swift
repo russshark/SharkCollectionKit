@@ -21,7 +21,7 @@ class Section {
     
     // MARK: - Init
 
-    init(@ModelArrayBuilder<VItem> items: () -> [VItem]) {
+    init(@GenericArrayBuilder<VItem> items: () -> [VItem]) {
         self.items = items()
     }
 }
@@ -30,9 +30,8 @@ extension Section: SectionT {
     
     func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)? {
         
-        guard var item = items[safe: indexPath.row] else { return nil }
-        item.parent = collectionView
-        
+        guard let item = items[safe: indexPath.row]?.with({ $0.parent = collectionView }) else { return nil }
+    
         guard let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
         
         let widthId = "cell.width"

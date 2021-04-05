@@ -1,5 +1,5 @@
 //
-//  ModelArrayBuilder.swift
+//  GenericArrayBuilder.swift
 //  SharkCollectionKit
 //
 //  Created by Russell Warwick on 04/04/2021.
@@ -8,7 +8,7 @@
 import Foundation
 
 @_functionBuilder
-struct ModelArrayBuilder<I> {
+struct GenericArrayBuilder<I> {
 
     typealias Expression = I
     typealias Component = [I]

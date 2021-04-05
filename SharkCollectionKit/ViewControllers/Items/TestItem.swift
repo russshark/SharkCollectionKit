@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TestItem: VItem {
+final class TestItem: NSObject, VItem {
 
     let text: String
     
@@ -72,7 +72,10 @@ final private class TestCell: UICollectionViewCell, BindableCell {
     }
 
     private func setConstraints(){
-        contentView.hstack(label, Space())
+        contentView.hstack {
+            label
+            Space()
+        }
         
     }
 }

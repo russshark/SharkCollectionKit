@@ -12,7 +12,7 @@ protocol CollectionDelegate: AnyObject {
 }
 
 protocol CollectionDatasource: AnyObject {
-    @ModelArrayBuilder<Section> func sections() -> [Section]
+    @GenericArrayBuilder<Section> func sections() -> [Section]
 }
 
 final class CollectionController: NSObject {

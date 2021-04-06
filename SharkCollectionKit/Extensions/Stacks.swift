@@ -42,6 +42,7 @@ extension UIView {
     
     // MARK: - Stacks
     
+    @discardableResult
     fileprivate func _stack(_ axis: NSLayoutConstraint.Axis = .vertical, views: [UIView], spacing: CGFloat = .zero, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill, safeArea: Bool = true) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = axis
@@ -94,6 +95,43 @@ extension UIView {
 
 }
 
+class ZStack: UIView {
+    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
+        super.init(frame: .zero)
+        
+        let stack = vstack{}
+        
+        let _ = views().map { (view: UIView) in
+            stack.vstack { view }
+        }
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+}
+
+class VStack: UIStackView {
+    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
+        super.init(frame: .zero)
+        self.axis = .vertical
+        self.spacing = spacing
+        self.addArrangedSubViews(views())
+    }
+    
+    required init(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
+}
+
+class HStack: UIStackView {
+    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
+        super.init(frame: .zero)
+        self.axis = .horizontal
+        self.spacing = spacing
+        self.addArrangedSubViews(views())
+    }
+    
+    required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+}
+
 extension UIStackView {
 
     @discardableResult
@@ -113,6 +151,10 @@ extension UIStackView {
     func distribution(_ distribution: UIStackView.Distribution) -> UIStackView {
         self.distribution = distribution
         return self
+    }
+    
+    func addArrangedSubViews(_ views: [UIView]) {
+        views.forEach { addArrangedSubview($0) }
     }
 }
 

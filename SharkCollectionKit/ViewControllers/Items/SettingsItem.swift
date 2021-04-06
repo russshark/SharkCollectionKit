@@ -28,7 +28,7 @@ final class SettingsItem: NSObject, HItem {
     
     var parent: UICollectionView?
     
-    var size: CGSize = .init(width: 340, height: 100)
+    var size: CGSize = .init(width: 100, height: 100)
 }
 
 final private class SettingsCell: UICollectionViewCell, BindableCell {

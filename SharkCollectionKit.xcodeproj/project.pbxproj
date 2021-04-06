@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BCA31A4B261A4F780050A483 /* PagingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A4A261A4F780050A483 /* PagingItem.swift */; };
-		BCA31A5D261A50800050A483 /* PagingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A5C261A50800050A483 /* PagingLayout.swift */; };
+		BCA31A4B261A4F780050A483 /* PagerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A4A261A4F780050A483 /* PagerItem.swift */; };
+		BCA31A5D261A50800050A483 /* PagerCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */; };
 		BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A62261A554B0050A483 /* SettingsItem.swift */; };
 		BCA31A6B261A7D550050A483 /* TestingStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A6A261A7D550050A483 /* TestingStacks.swift */; };
+		BCA5556C261BDA9B007754CD /* HorizontalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5556B261BDA9B007754CD /* HorizontalItem.swift */; };
 		BCAD06A5261938D3007C89CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A4261938D3007C89CA /* AppDelegate.swift */; };
 		BCAD06A7261938D3007C89CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A6261938D3007C89CA /* SceneDelegate.swift */; };
 		BCAD06A9261938D3007C89CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A8261938D3007C89CA /* ViewController.swift */; };
@@ -46,10 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BCA31A4A261A4F780050A483 /* PagingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingItem.swift; sourceTree = "<group>"; };
-		BCA31A5C261A50800050A483 /* PagingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingLayout.swift; sourceTree = "<group>"; };
+		BCA31A4A261A4F780050A483 /* PagerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerItem.swift; sourceTree = "<group>"; };
+		BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerCollectionViewLayout.swift; sourceTree = "<group>"; };
 		BCA31A62261A554B0050A483 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		BCA31A6A261A7D550050A483 /* TestingStacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingStacks.swift; sourceTree = "<group>"; };
+		BCA5556B261BDA9B007754CD /* HorizontalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalItem.swift; sourceTree = "<group>"; };
 		BCAD06A1261938D3007C89CA /* SharkCollectionKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharkCollectionKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAD06A4261938D3007C89CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAD06A6261938D3007C89CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,8 +103,8 @@
 		BCA31A4F261A50260050A483 /* Paging Item */ = {
 			isa = PBXGroup;
 			children = (
-				BCA31A4A261A4F780050A483 /* PagingItem.swift */,
-				BCA31A5C261A50800050A483 /* PagingLayout.swift */,
+				BCA31A4A261A4F780050A483 /* PagerItem.swift */,
+				BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */,
 			);
 			path = "Paging Item";
 			sourceTree = "<group>";
@@ -114,6 +116,14 @@
 				BCA31A62261A554B0050A483 /* SettingsItem.swift */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		BCA5556A261BDA42007754CD /* HorizontalItem */ = {
+			isa = PBXGroup;
+			children = (
+				BCA5556B261BDA9B007754CD /* HorizontalItem.swift */,
+			);
+			path = HorizontalItem;
 			sourceTree = "<group>";
 		};
 		BCAD0698261938D3007C89CA = {
@@ -200,6 +210,7 @@
 				BCF59BB226196AAF009C11AF /* CollectionController.swift */,
 				BCAD06EA26193B36007C89CA /* Section.swift */,
 				BCF59BA426193BBB009C11AF /* GenericArrayBuilder.swift */,
+				BCA5556A261BDA42007754CD /* HorizontalItem */,
 				BCA31A4F261A50260050A483 /* Paging Item */,
 				BCF59BA826195E60009C11AF /* Items */,
 			);
@@ -361,11 +372,12 @@
 				BCF59BAD26196192009C11AF /* Extensions.swift in Sources */,
 				BCA31A6B261A7D550050A483 /* TestingStacks.swift in Sources */,
 				BCAD06A7261938D3007C89CA /* SceneDelegate.swift in Sources */,
-				BCA31A5D261A50800050A483 /* PagingLayout.swift in Sources */,
+				BCA31A5D261A50800050A483 /* PagerCollectionViewLayout.swift in Sources */,
+				BCA5556C261BDA9B007754CD /* HorizontalItem.swift in Sources */,
 				BCF59BA726193BD0009C11AF /* Item.swift in Sources */,
 				BCF59BAA26195E81009C11AF /* ItemCellBinder.swift in Sources */,
 				BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */,
-				BCA31A4B261A4F780050A483 /* PagingItem.swift in Sources */,
+				BCA31A4B261A4F780050A483 /* PagerItem.swift in Sources */,
 				BCF59BA526193BBB009C11AF /* GenericArrayBuilder.swift in Sources */,
 				BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */,
 				BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */,

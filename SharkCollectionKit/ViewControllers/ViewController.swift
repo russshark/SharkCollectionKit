@@ -7,6 +7,29 @@
 
 import UIKit
 
+class CoolLabel: UIView {
+    
+    let label = UILabel().with({
+        $0.text = ""
+        $0.backgroundColor = .white
+    })
+    
+    init(text: String){
+        super.init(frame: .zero)
+        label.text = text
+        vstack {
+            label
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+
+    
+}
+
 final class ViewController: UIViewController {
     
     // MARK: - UI
@@ -35,64 +58,38 @@ final class ViewController: UIViewController {
     // MARK: - Configure
     
     private func setConstraints(){
-        view.vstack(spacing: 10, safeArea: true) {
+        view.vstack {
             collectionView
-            UILabel().with({
-                $0.text = "this is atest"
-                $0.backgroundColor = .white
-            })
-            
-            view.zstack {
-                UILabel().with({
-                    $0.text = "7"
-                    $0.backgroundColor = .clear
-                })
-                UILabel().with({
-                    $0.text = "8"
-                    $0.backgroundColor = .clear
-                })
-            }
         }
     }
     
-    var testing = false
+    var testing = true
+
 }
 
 extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
         Section {
-            PagingItem(items: [SettingsItem(text: "Page 1"), SettingsItem(text: "Page 2"), SettingsItem(text: "Page 3")])
-            .setSpacing(100)
-            .setInset(30)
-            .setVelocity(2.5)
-            
-            TestItem(text: "Russell Warwick")
-            
-            if testing{
-                TestItem(text: "This is test data! 🤖")
-                TestItem(text: "This is all test data for the purpose of testing things out")
-            } else {
-                TestItem(text: "This is some live data")
-                TestItem(text: "Live information here")
-                TestItem(text: "🚀🚀🚀🚀🚀🚀🚀🚀🚀")
+            HorizontalItem(spacing: 50) {
+                SettingsItem(text: "Page 1")
+                SettingsItem(text: "Page 1")
+                SettingsItem(text: "Page 1")
+                SettingsItem(text: "Page 1")
+                SettingsItem(text: "Page 1")
+                SettingsItem(text: "Page 1")
+                SettingsItem(text: "Page 1")
+                SettingsItem(text: "Page 1")
             }
             
-            TestItem(text: " ")
+            TestItem(text: "Some random text in here")
+            TestItem(text: "--------Footer--------")
         }
-  
-        if testing {
-            Section {
-                TestItem(text: "This section will only appear when in test mode")
-                TestItem(text: "How great is this")
-                
-                PagingItem(items: [SettingsItem(text: "Page 1"), SettingsItem(text: "Page 2"), SettingsItem(text: "Page 3")])
-                .setSpacing(100)
-                .setInset(30)
-                .setVelocity(2.5)
-                
-                TestItem(text: "End of test section")
-            }
+        
+        Section {
+            TestItem(text: "New section")
+            TestItem(text: "--------Header--------")
+            TestItem(text: "Thsiu uhsih iuujndgj ffn jghdjn fgud nrjferj endj ffj nhdjfvd plfgfm fdm ng kfdkn d ngf i gfkd")
         }
     }
 }

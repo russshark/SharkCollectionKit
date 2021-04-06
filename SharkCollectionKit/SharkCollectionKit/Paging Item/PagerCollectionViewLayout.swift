@@ -1,5 +1,5 @@
 //
-//  PagingLayout.swift
+//  PagerCollectionViewLayout.swift
 //  SharkCollectionKit
 //
 //  Created by Russell Warwick on 04/04/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PagingCollectionViewLayout: UICollectionViewFlowLayout {
+final class PagerCollectionViewLayout: UICollectionViewFlowLayout {
     
     
     private var numberOfItemsPerPage: CGFloat = 1

@@ -17,11 +17,11 @@ class Section {
     
     // MARK: - Dependencies
     
-    let items: [VItem]
+    let items: [Item]
     
     // MARK: - Init
 
-    init(@GenericArrayBuilder<VItem> items: () -> [VItem]) {
+    init(@GenericArrayBuilder<Item> items: () -> [Item]) {
         self.items = items()
     }
 }
@@ -34,14 +34,8 @@ extension Section: SectionT {
     
         guard let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
         
-        let widthId = "cell.width"
-        cell.contentView.removeConstraints(cell.contentView.constraints.filter({ $0.identifier == widthId }))
-        cell.contentView.widthAnchor.constraint(equalToConstant: collectionView.bounds.inset(by: collectionView.contentInset).width).with({
-            $0.priority = UILayoutPriority(999)
-            $0.isActive = true
-            $0.identifier = widthId
-        })
-   
+        setSize(cell: cell, indexPath: indexPath, collectionView: collectionView)
+
         return (cell, item)
     }
     
@@ -51,7 +45,52 @@ extension Section: SectionT {
     
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize {
         guard let item = items[safe: row] else { return .zero }
-        let width = collectionView.bounds.inset(by: collectionView.contentInset).width
-        return CGSize(width: width, height: item.estimatedHeight)
+        
+        if let vitem = item as? VItem {
+            let width = collectionView.bounds.inset(by: collectionView.contentInset).width
+            return CGSize(width: width, height: vitem.estimatedHeight)
+        } else if let hitem = item as? HItem {
+            return hitem.size
+        } else {
+            return .zero
+        }
+    }
+    
+    // MARK: -
+    
+    private func setSize(cell: UICollectionViewCell, indexPath: IndexPath, collectionView: UICollectionView){
+        
+        guard let item = items[safe: indexPath.row] else { return}
+        
+        let widthId = "cell.width"
+        let heightId = "cell.height"
+        
+        NSLayoutConstraint.deactivate(cell.contentView.constraints.filter({ $0.identifier == widthId }))
+        NSLayoutConstraint.deactivate(cell.contentView.constraints.filter({ $0.identifier == heightId }))
+        
+        if let _ = item as? VItem {
+            
+            cell.contentView.widthAnchor.constraint(equalToConstant: size(forRow: indexPath.row, collectionView: collectionView).width).with({
+                $0.priority = UILayoutPriority(999)
+                $0.isActive = true
+                $0.identifier = widthId
+            })
+            
+        } else if let _ = item as? HItem {
+            
+            let itemSize = size(forRow: indexPath.row, collectionView: collectionView)
+            
+            cell.contentView.widthAnchor.constraint(equalToConstant: itemSize.width).with({
+                $0.priority = UILayoutPriority(999)
+                $0.isActive = true
+                $0.identifier = widthId
+            })
+            
+            cell.contentView.heightAnchor.constraint(equalToConstant: itemSize.height).with({
+                $0.priority = UILayoutPriority(999)
+                $0.isActive = true
+                $0.identifier = heightId
+            })
+        }
     }
 }

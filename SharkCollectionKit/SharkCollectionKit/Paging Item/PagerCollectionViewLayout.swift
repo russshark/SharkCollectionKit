@@ -11,7 +11,7 @@ final class PagerCollectionViewLayout: UICollectionViewFlowLayout {
     
     
     private var numberOfItemsPerPage: CGFloat = 1
-    var pageVelocity: CGFloat = 1.5
+    var minVelocity: CGFloat = 1.5
 
     // MARK: - Init
         
@@ -50,7 +50,7 @@ final class PagerCollectionViewLayout: UICollectionViewFlowLayout {
         
         var nextPage: CGFloat = currentPage + (speed > 0 ? 1 : -1)
         
-        let increment = speed / pageVelocity
+        let increment = speed / minVelocity
         nextPage += (speed < 0) ? ceil(increment) : floor(increment)
         
         return CGPoint(x: nextPage * pageLength, y: 0)

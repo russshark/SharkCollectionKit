@@ -34,13 +34,13 @@ final class HorizontalItem: NSObject, VItem {
     // MARK: - Chaining
     
     @discardableResult
-    func setSpacing(_ spacing: CGFloat) -> Self {
+    func spacing(_ spacing: CGFloat) -> Self {
         self.spacing = spacing
         return self
     }
     
     @discardableResult
-    func setInset(_ inset: CGFloat) -> Self {
+    func inset(_ inset: CGFloat) -> Self {
         self.inset = inset
         return self
     }

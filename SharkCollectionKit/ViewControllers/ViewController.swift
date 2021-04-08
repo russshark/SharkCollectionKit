@@ -70,29 +70,11 @@ final class ViewController: UIViewController {
 extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
-        
-        Section {
-            HorizontalItem(spacing: 50) {
-                (0..<20).map { (itemNumber: Int) in
-                    SettingsItem(text: "Item: \(itemNumber)")
-                }
-            }.setInset(25)
-            
-            TestItem(text: "Some random text in here")
-            TestItem(text: "--------Footer--------")
-        }
-        
         Section {
             TestItem(text: "New section")
             TestItem(text: "--------Header--------")
             TestItem(text: "Thsiu uhsih iuujndgj ffn jghdjn fgud nrjferj endj ffj nhdjfvd plfgfm fdm ng kfdkn d ngf i gfkd")
-            
-            PagerItem {
-                (0..<10).map { (pageNumber: Int) in
-                    PhotosItem(text: "Page \(pageNumber)")
-                }
-            }
-        }
+        }.lineSpacing(50)
     }
 }
 
@@ -112,3 +94,29 @@ extension ViewController: CollectionDelegate {
         collectionView.reloadData()
     }
 }
+
+/*
+ Cool data source to play with
+ Section {
+     HorizontalItem(spacing: 50) {
+         (0..<20).map { (itemNumber: Int) in
+             SettingsItem(text: "Item: \(itemNumber)")
+         }
+     }.setInset(25)
+     
+     TestItem(text: "Some random text in here")
+     TestItem(text: "--------Footer--------")
+ }
+ 
+ Section {
+     TestItem(text: "New section")
+     TestItem(text: "--------Header--------")
+     TestItem(text: "Thsiu uhsih iuujndgj ffn jghdjn fgud nrjferj endj ffj nhdjfvd plfgfm fdm ng kfdkn d ngf i gfkd")
+     
+     PagerItem {
+         (0..<10).map { (pageNumber: Int) in
+             PhotosItem(text: "Page \(pageNumber)")
+         }
+     }
+ }
+ */

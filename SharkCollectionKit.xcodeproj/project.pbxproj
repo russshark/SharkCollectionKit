@@ -102,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC179864261FCC2100CE68A0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BCF59BA426193BBB009C11AF /* GenericArrayBuilder.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		BCA31A4F261A50260050A483 /* Paging Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,21 +220,21 @@
 			children = (
 				BCF59BB226196AAF009C11AF /* CollectionController.swift */,
 				BCAD06EA26193B36007C89CA /* Section.swift */,
-				BCF59BA426193BBB009C11AF /* GenericArrayBuilder.swift */,
+				BCF59BA826195E60009C11AF /* Item */,
 				BCA5556A261BDA42007754CD /* HorizontalItem */,
 				BCA31A4F261A50260050A483 /* Paging Item */,
-				BCF59BA826195E60009C11AF /* Items */,
+				BC179864261FCC2100CE68A0 /* Helpers */,
 			);
 			path = SharkCollectionKit;
 			sourceTree = "<group>";
 		};
-		BCF59BA826195E60009C11AF /* Items */ = {
+		BCF59BA826195E60009C11AF /* Item */ = {
 			isa = PBXGroup;
 			children = (
 				BCF59BA926195E81009C11AF /* ItemCellBinder.swift */,
 				BCF59BA626193BD0009C11AF /* Item.swift */,
 			);
-			path = Items;
+			path = Item;
 			sourceTree = "<group>";
 		};
 		BCF59BAB26196172009C11AF /* Extensions */ = {

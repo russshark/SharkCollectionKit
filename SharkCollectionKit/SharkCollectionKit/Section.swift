@@ -10,13 +10,17 @@ import UIKit
 protocol SectionT {
     func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)?
     func numberOfItems() -> Int
-    func size(forRow row: Int, collectionView: UICollectionView) -> CGSize 
+    func size(forRow row: Int, collectionView: UICollectionView) -> CGSize
+    
+    func lineSpacing() -> CGFloat
+    func interitemSpacing() -> CGFloat
 }
 
-class Section {
+final class Section {
     
     // MARK: - Dependencies
     
+    private var itemLineSpacing: CGFloat = .zero
     let items: [Item]
     
     // MARK: - Init
@@ -24,9 +28,19 @@ class Section {
     init(@GenericArrayBuilder<Item> items: () -> [Item]) {
         self.items = items()
     }
+    
+    // MARK: - Chaining
+    
+    @discardableResult
+    func lineSpacing(_ spacing: CGFloat) -> Self {
+        self.itemLineSpacing = spacing
+        return self
+    }
 }
 
 extension Section: SectionT {
+
+    // MARK: - Config
     
     func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)? {
         
@@ -43,6 +57,16 @@ extension Section: SectionT {
         return items.count
     }
     
+    // MARK: - Sizing
+    
+    func lineSpacing() -> CGFloat {
+        return itemLineSpacing
+    }
+    
+    func interitemSpacing() -> CGFloat {
+        return .zero
+    }
+    
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize {
         guard let item = items[safe: row] else { return .zero }
         
@@ -56,7 +80,11 @@ extension Section: SectionT {
         }
     }
     
-    // MARK: -
+}
+
+extension Section {
+    
+    // MARK: - Set size helper
     
     private func setSize(cell: UICollectionViewCell, indexPath: IndexPath, collectionView: UICollectionView){
         

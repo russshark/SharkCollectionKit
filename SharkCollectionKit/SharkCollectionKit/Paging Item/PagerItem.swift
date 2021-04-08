@@ -14,7 +14,7 @@ final class PagerItem: NSObject, VItem {
     let items: [HItem]
     var spacing: CGFloat = .zero
     var inset: CGFloat = .zero
-    var velocity: CGFloat = 2.4
+    var minVelocity: CGFloat = 2.4
     
     //MARK: - Init
     
@@ -37,20 +37,20 @@ final class PagerItem: NSObject, VItem {
     // MARK: - Chaining
     
     @discardableResult
-    func setSpacing(_ spacing: CGFloat) -> Self {
+    func spacing(_ spacing: CGFloat) -> Self {
         self.spacing = spacing
         return self
     }
     
     @discardableResult
-    func setInset(_ inset: CGFloat) -> Self {
+    func inset(_ inset: CGFloat) -> Self {
         self.inset = inset
         return self
     }
     
     @discardableResult
-    func setVelocity(_ velocity: CGFloat) -> Self {
-        self.velocity = velocity
+    func minVelocity(_ velocity: CGFloat) -> Self {
+        self.minVelocity = velocity
         return self
     }
 }
@@ -92,7 +92,7 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
             
             layout.sectionInset = UIEdgeInsets(top: .zero, left: item.inset, bottom: .zero, right: item.inset)
             layout.minimumLineSpacing = item.spacing
-            layout.pageVelocity = item.velocity
+            layout.minVelocity = item.minVelocity
             
             let adjustedWidth = parent.bounds.inset(by: parent.contentInset).width - (item.inset * 2.0)
             layout.itemSize = .init(width: adjustedWidth, height: item.estimatedHeight)

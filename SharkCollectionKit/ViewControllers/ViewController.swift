@@ -17,7 +17,7 @@ class CoolLabel: UIView {
     init(text: String){
         super.init(frame: .zero)
         label.text = text
-        vstack {
+        VStack {
             label
         }
     }
@@ -58,7 +58,7 @@ final class ViewController: UIViewController {
     // MARK: - Configure
     
     private func setConstraints(){
-        view.vstack {
+        view.VStack {
             collectionView
         }
     }
@@ -70,17 +70,13 @@ final class ViewController: UIViewController {
 extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
+        
         Section {
             HorizontalItem(spacing: 50) {
-                SettingsItem(text: "Page 1")
-                SettingsItem(text: "Page 1")
-                SettingsItem(text: "Page 1")
-                SettingsItem(text: "Page 1")
-                SettingsItem(text: "Page 1")
-                SettingsItem(text: "Page 1")
-                SettingsItem(text: "Page 1")
-                SettingsItem(text: "Page 1")
-            }
+                (0..<20).map { (itemNumber: Int) in
+                    SettingsItem(text: "Item: \(itemNumber)")
+                }
+            }.setInset(25)
             
             TestItem(text: "Some random text in here")
             TestItem(text: "--------Footer--------")
@@ -90,6 +86,12 @@ extension ViewController: CollectionDatasource {
             TestItem(text: "New section")
             TestItem(text: "--------Header--------")
             TestItem(text: "Thsiu uhsih iuujndgj ffn jghdjn fgud nrjferj endj ffj nhdjfvd plfgfm fdm ng kfdkn d ngf i gfkd")
+            
+            PagerItem {
+                (0..<10).map { (pageNumber: Int) in
+                    PhotosItem(text: "Page \(pageNumber)")
+                }
+            }
         }
     }
 }

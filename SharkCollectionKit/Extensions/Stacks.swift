@@ -9,12 +9,47 @@ import UIKit
 
 // MARK: - Stacks
 
+final class ZStack: UIView {
+    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
+        super.init(frame: .zero)
+        
+        let stack = VStack{}
+        
+        let _ = views().map { (view: UIView) in
+            stack.VStack { view }
+        }
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
+}
+
+final class VStack: UIStackView {
+    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
+        super.init(frame: .zero)
+        self.axis = .vertical
+        self.spacing = spacing
+        self.addArrangedSubViews(views())
+    }
+    
+    required init(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
+}
+
+final class HStack: UIStackView {
+    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
+        super.init(frame: .zero)
+        self.axis = .horizontal
+        self.spacing = spacing
+        self.addArrangedSubViews(views())
+    }
+    
+    required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+}
 
 extension UIView {
     
     @discardableResult
-    func withSqaure(_ value: CGFloat, priority: UILayoutPriority = .required) -> Self {
+    func withSquare(_ value: CGFloat, priority: UILayoutPriority = .required) -> Self {
         return withFixed(width: value, height: value, priority: priority)
     }
     
@@ -31,11 +66,13 @@ extension UIView {
     @discardableResult
     func withFixed(width: CGFloat? = nil, height: CGFloat? = nil, priority: UILayoutPriority = .required) -> Self {
         translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([width.flatMap { widthAnchor.constraint(equalToConstant: $0) },
-                                     height.flatMap { heightAnchor.constraint(equalToConstant: $0)}]
-                                    .compactMap { $0?.priority = priority
-                                        return $0
-                                    })
+        NSLayoutConstraint.activate(
+            [width.flatMap { widthAnchor.constraint(equalToConstant: $0) },
+             height.flatMap { heightAnchor.constraint(equalToConstant: $0)}]
+                .compactMap {
+                    $0?.priority = priority
+                    return $0
+        })
         
         return self
     }
@@ -73,63 +110,26 @@ extension UIView {
     }
     
     @discardableResult
-    func zstack(spacing: CGFloat = .zero, safeArea: Bool = false, @GenericArrayBuilder<UIView> views: () -> [UIView])-> UIView {
-        let stack = vstack{}
+    func ZStack(spacing: CGFloat = .zero, safeArea: Bool = false, @GenericArrayBuilder<UIView> views: () -> [UIView])-> UIView {
+        let stack = VStack{}
         
         let _ = views().map { (view: UIView) in
-            stack.vstack { view }
+            stack.VStack { view }
         }
         
         return stack
     }
     
     @discardableResult
-    func vstack(spacing: CGFloat = .zero, safeArea: Bool = false, @GenericArrayBuilder<UIView> views: () -> [UIView])-> UIStackView {
+    func VStack(spacing: CGFloat = .zero, safeArea: Bool = false, @GenericArrayBuilder<UIView> views: () -> [UIView])-> UIStackView {
         return _stack(.vertical, views: views(), spacing: spacing, alignment: .fill, distribution: .fill, safeArea: safeArea)
     }
     
     @discardableResult
-    func hstack(spacing: CGFloat = .zero, safeArea: Bool = false, @GenericArrayBuilder<UIView> views: () -> [UIView])-> UIStackView {
+    func HStack(spacing: CGFloat = .zero, safeArea: Bool = false, @GenericArrayBuilder<UIView> views: () -> [UIView])-> UIStackView {
         return _stack(.horizontal, views: views(), spacing: spacing, alignment: .fill, distribution: .fill, safeArea: safeArea)
     }
 
-}
-
-class ZStack: UIView {
-    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
-        super.init(frame: .zero)
-        
-        let stack = vstack{}
-        
-        let _ = views().map { (view: UIView) in
-            stack.vstack { view }
-        }
-    }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
-}
-
-class VStack: UIStackView {
-    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
-        super.init(frame: .zero)
-        self.axis = .vertical
-        self.spacing = spacing
-        self.addArrangedSubViews(views())
-    }
-    
-    required init(coder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
-}
-
-class HStack: UIStackView {
-    init(spacing: CGFloat = .zero, @GenericArrayBuilder<UIView> views: () -> [UIView]) {
-        super.init(frame: .zero)
-        self.axis = .horizontal
-        self.spacing = spacing
-        self.addArrangedSubViews(views())
-    }
-    
-    required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 
 extension UIStackView {
@@ -150,6 +150,12 @@ extension UIStackView {
     @discardableResult
     func distribution(_ distribution: UIStackView.Distribution) -> UIStackView {
         self.distribution = distribution
+        return self
+    }
+    
+    @discardableResult
+    func spacing(_ spacing: CGFloat) -> UIStackView {
+        self.spacing = spacing
         return self
     }
     

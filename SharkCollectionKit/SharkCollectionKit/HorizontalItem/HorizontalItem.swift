@@ -33,11 +33,13 @@ final class HorizontalItem: NSObject, VItem {
     
     // MARK: - Chaining
     
+    @discardableResult
     func setSpacing(_ spacing: CGFloat) -> Self {
         self.spacing = spacing
         return self
     }
     
+    @discardableResult
     func setInset(_ inset: CGFloat) -> Self {
         self.inset = inset
         return self
@@ -52,7 +54,6 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
     
     private let layout = UICollectionViewFlowLayout().with {
         $0.scrollDirection = .horizontal
-        $0.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     }
     
     lazy var collectionView: UICollectionView = {
@@ -67,7 +68,7 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .clear
-        contentView.vstack {
+        contentView.VStack {
             collectionView
         }
         collection.delegate = self
@@ -86,7 +87,6 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
             layout.minimumLineSpacing = item.spacing
         }
     }
-    
 }
  
 extension HorizontalCell: CollectionDatasource {
@@ -95,11 +95,10 @@ extension HorizontalCell: CollectionDatasource {
             item?.items ?? []
         }
     }
-    
-    
 }
 
 extension HorizontalCell: CollectionDelegate {
+    
     func bindItem(_ item: Item) {
         
     }

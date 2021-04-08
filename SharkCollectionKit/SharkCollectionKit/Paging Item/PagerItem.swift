@@ -14,7 +14,7 @@ final class PagerItem: NSObject, VItem {
     let items: [HItem]
     var spacing: CGFloat = .zero
     var inset: CGFloat = .zero
-    var velocity: CGFloat = 1.5
+    var velocity: CGFloat = 2.4
     
     //MARK: - Init
     
@@ -36,16 +36,19 @@ final class PagerItem: NSObject, VItem {
     
     // MARK: - Chaining
     
+    @discardableResult
     func setSpacing(_ spacing: CGFloat) -> Self {
         self.spacing = spacing
         return self
     }
     
+    @discardableResult
     func setInset(_ inset: CGFloat) -> Self {
         self.inset = inset
         return self
     }
     
+    @discardableResult
     func setVelocity(_ velocity: CGFloat) -> Self {
         self.velocity = velocity
         return self
@@ -71,7 +74,7 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .clear
-        contentView.vstack {
+        contentView.VStack {
             collectionView
         }
     }

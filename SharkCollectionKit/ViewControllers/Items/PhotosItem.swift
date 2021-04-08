@@ -1,13 +1,13 @@
 //
-//  SettingsItem.swift
+//  PhotosItem.swift
 //  SharkCollectionKit
 //
-//  Created by Russell Warwick on 04/04/2021.
+//  Created by Russell Warwick on 09/04/2021.
 //
 
 import UIKit
 
-final class SettingsItem: NSObject, HItem {
+final class PhotosItem: NSObject, HItem {
 
     let text: String
     
@@ -21,7 +21,7 @@ final class SettingsItem: NSObject, HItem {
     }
     
     var binder: ItemCellBinderType {
-        return ItemCellBinder<SettingsCell, SettingsItem>.init(item: self)
+        return ItemCellBinder<PhotosCell, PhotosItem>.init(item: self)
     }
     
     var parent: UICollectionView?
@@ -29,7 +29,7 @@ final class SettingsItem: NSObject, HItem {
     var size: CGSize = .init(width: 100, height: 100)
 }
 
-final private class SettingsCell: UICollectionViewCell, BindableCell {
+final private class PhotosCell: UICollectionViewCell, BindableCell {
     
     //MARK: - UI
     
@@ -47,7 +47,7 @@ final private class SettingsCell: UICollectionViewCell, BindableCell {
     
     //MARK: - Item
 
-    var item: SettingsItem? {
+    var item: PhotosItem? {
         didSet {
             label.text = item?.text
         }
@@ -56,7 +56,7 @@ final private class SettingsCell: UICollectionViewCell, BindableCell {
     //MARK: - Configure
     
     private func styleView(){
-        contentView.backgroundColor = .red
+        contentView.backgroundColor = .cyan
         contentView.layer.cornerRadius = 5
         contentView.clipsToBounds = true
         contentView.layer.masksToBounds = true

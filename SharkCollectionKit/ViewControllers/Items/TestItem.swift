@@ -72,7 +72,7 @@ final private class TestCell: UICollectionViewCell, BindableCell {
     }
 
     private func setConstraints(){
-        contentView.hstack {
+        contentView.HStack {
             label
             Space()
         }

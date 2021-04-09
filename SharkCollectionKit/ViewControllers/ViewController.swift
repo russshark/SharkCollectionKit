@@ -77,6 +77,7 @@ extension ViewController: CollectionDatasource {
         }.lineSpacing(10)
         .columnSpacing(10)
         .columns(2)
+        .isGrid(true)
         .inset(UIEdgeInsets(top: 20, left: 20, bottom: 100, right: 20))
         
         Section {

@@ -69,13 +69,13 @@ final private class TestCell: UICollectionViewCell, BindableCell {
         contentView.clipsToBounds = true
         contentView.layer.masksToBounds = true
         label.numberOfLines = 0
+        label.textAlignment = .center
     }
 
     private func setConstraints(){
         contentView.HStack {
             label
-            Space()
-        }.withHeight(100)
+        }.withHeight(100, priority: UILayoutPriority(500))
         
     }
 }

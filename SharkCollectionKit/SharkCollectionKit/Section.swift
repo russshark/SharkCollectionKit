@@ -25,6 +25,7 @@ final class Section {
     private var interitemSpacing: CGFloat = .zero
     private var numberOfColumns: Int = 1
     private var inset: UIEdgeInsets = .zero
+    private var isGrid: Bool = false
     
     // MARK: - Dependencies
     
@@ -60,6 +61,12 @@ final class Section {
     @discardableResult
     func inset(_ inset: UIEdgeInsets) -> Self {
         self.inset = inset
+        return self
+    }
+    
+    @discardableResult
+    func isGrid(_ value: Bool) -> Self {
+        self.isGrid = value
         return self
     }
 }
@@ -134,7 +141,16 @@ extension Section {
         NSLayoutConstraint.deactivate(cell.contentView.constraints.filter({ $0.identifier == widthId }))
         NSLayoutConstraint.deactivate(cell.contentView.constraints.filter({ $0.identifier == heightId }))
         
-        if let _ = item as? VItem {
+         if let _ = item as? VItem {
+            
+            if isGrid {
+                // We want to match the height to the resizable width view due to device sizes
+                cell.contentView.heightAnchor.constraint(equalToConstant: size(forRow: indexPath.row, collectionView: collectionView).width).with({
+                    $0.priority = UILayoutPriority(999)
+                    $0.isActive = true
+                    $0.identifier = widthId
+                })
+            }
             
             cell.contentView.widthAnchor.constraint(equalToConstant: size(forRow: indexPath.row, collectionView: collectionView).width).with({
                 $0.priority = UILayoutPriority(999)

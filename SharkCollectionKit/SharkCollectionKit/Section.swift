@@ -14,6 +14,7 @@ protocol SectionT {
     
     func lineSpacing() -> CGFloat
     func columnSpacing() -> CGFloat
+    func sectionInset() -> UIEdgeInsets
 }
 
 final class Section {
@@ -23,6 +24,7 @@ final class Section {
     private var itemLineSpacing: CGFloat = .zero
     private var interitemSpacing: CGFloat = .zero
     private var numberOfColumns: Int = 1
+    private var inset: UIEdgeInsets = .zero
     
     // MARK: - Dependencies
     
@@ -54,6 +56,12 @@ final class Section {
         self.numberOfColumns = numberOfColumns
         return self
     }
+    
+    @discardableResult
+    func inset(_ inset: UIEdgeInsets) -> Self {
+        self.inset = inset
+        return self
+    }
 }
 
 extension Section: SectionT {
@@ -77,7 +85,9 @@ extension Section: SectionT {
     // MARK: - Sizing
     
     func lineSpacing() -> CGFloat {
-        // Not sure why 1.5 gives the desired result, needs investigation.
+        guard numberOfColumns == 1 else { return itemLineSpacing }
+        
+        // Not sure why 1.5 gives the desired result when using multi columns, needs investigation.
         return (itemLineSpacing * 1.5) + 0.82
     }
     
@@ -95,7 +105,7 @@ extension Section: SectionT {
         if let item = item as? HItem {
             return item.size
         } else if let item = item as? VItem {
-            let width = collectionView.bounds.inset(by: collectionView.contentInset).width/CGFloat(numberOfColumns)
+            let width = collectionView.bounds.inset(by: collectionView.contentInset).inset(by: inset).width/CGFloat(numberOfColumns)
             let widthAdjustment: CGFloat = (numberOfColumns == 0) ? .zero : (0.18 + interitemSpacing)
             // Having this widthAdjustment allows us to have multi columns. Not sure why it works but needs investigation.
             
@@ -103,7 +113,11 @@ extension Section: SectionT {
         } else {
             return .zero
         }
-    }    
+    }
+    
+    func sectionInset() -> UIEdgeInsets {
+        return inset
+    }
 }
 
 extension Section {

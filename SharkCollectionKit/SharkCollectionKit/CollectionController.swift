@@ -82,6 +82,10 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sections[safe: section]?.sectionInset() ?? .zero
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return sections[safe: indexPath.section]?.size(forRow: indexPath.row, collectionView: collectionView) ?? .zero
     }

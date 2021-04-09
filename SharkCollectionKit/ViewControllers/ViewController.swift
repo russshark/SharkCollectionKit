@@ -71,12 +71,18 @@ extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
         Section {
-            (0..<30).map { (id: Int) in
+            (0..<6).map { (id: Int) in
                 TestItem(text: "Test: \(id)")
             }
         }.lineSpacing(10)
         .columnSpacing(10)
-        .columns(3)
+        .columns(2)
+        .inset(UIEdgeInsets(top: 20, left: 20, bottom: 100, right: 20))
+        
+        Section {
+            TestItem(text: "Some random text in here")
+            TestItem(text: "--------Footer--------")
+        }
         
 //
 //

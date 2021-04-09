@@ -50,7 +50,7 @@ final class ViewController: UIViewController {
         view.backgroundColor = .blue
         collectionView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         collectionView.alwaysBounceVertical = true
-        collectionView.contentInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+        collectionView.contentInset = .init(top: 40, left: 20, bottom: 0, right: 20)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -71,10 +71,38 @@ extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
         Section {
-            TestItem(text: "New section")
-            TestItem(text: "--------Header--------")
-            TestItem(text: "Thsiu uhsih iuujndgj ffn jghdjn fgud nrjferj endj ffj nhdjfvd plfgfm fdm ng kfdkn d ngf i gfkd")
-        }.lineSpacing(50)
+            (0..<30).map { (id: Int) in
+                TestItem(text: "Test: \(id)")
+            }
+        }.lineSpacing(10)
+        .columnSpacing(10)
+        .columns(3)
+        
+//
+//
+//
+//        Section {
+//            HorizontalItem(spacing: 50) {
+//                (0..<20).map { (itemNumber: Int) in
+//                    SettingsItem(text: "Item: \(itemNumber)")
+//                }
+//            }.inset(25).spacing(30)
+//
+//            TestItem(text: "Some random text in here")
+//            TestItem(text: "--------Footer--------")
+//        }
+//
+//        Section {
+//            TestItem(text: "New section")
+//            TestItem(text: "--------Header--------")
+//            TestItem(text: "TThis is a test")
+//
+//            PagerItem {
+//                (0..<10).map { (pageNumber: Int) in
+//                    PhotosItem(text: "Page \(pageNumber)")
+//                }
+//            }.spacing(10)
+//        }
     }
 }
 

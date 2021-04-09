@@ -106,6 +106,4 @@ extension HorizontalCell: CollectionDelegate {
     func didSelectItem(item: Item, indexPath: IndexPath) {
         
     }
-    
-    
 }

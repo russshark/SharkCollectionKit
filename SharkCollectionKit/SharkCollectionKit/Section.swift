@@ -13,14 +13,19 @@ protocol SectionT {
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize
     
     func lineSpacing() -> CGFloat
-    func interitemSpacing() -> CGFloat
+    func columnSpacing() -> CGFloat
 }
 
 final class Section {
     
-    // MARK: - Dependencies
+    // MARK: - Properties
     
     private var itemLineSpacing: CGFloat = .zero
+    private var interitemSpacing: CGFloat = .zero
+    private var numberOfColumns: Int = 1
+    
+    // MARK: - Dependencies
+    
     let items: [Item]
     
     // MARK: - Init
@@ -34,6 +39,19 @@ final class Section {
     @discardableResult
     func lineSpacing(_ spacing: CGFloat) -> Self {
         self.itemLineSpacing = spacing
+        return self
+    }
+    
+    @discardableResult
+    func columnSpacing(_ spacing: CGFloat) -> Self {
+        self.interitemSpacing = spacing
+        return self
+    }
+    
+    @discardableResult
+    func columns(_ numberOfColumns: Int) -> Self {
+        if numberOfColumns <= 0 { assertionFailure("Columns cannot be less than 1") }
+        self.numberOfColumns = numberOfColumns
         return self
     }
 }
@@ -60,26 +78,33 @@ extension Section: SectionT {
     // MARK: - Sizing
     
     func lineSpacing() -> CGFloat {
-        return itemLineSpacing
+        // Not sure why 1.5 gives the desired result, needs investigation.
+        return (itemLineSpacing * 1.5) + 0.82
     }
     
-    func interitemSpacing() -> CGFloat {
-        return .zero
+    func columnSpacing() -> CGFloat {
+        return interitemSpacing
     }
     
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize {
         guard let item = items[safe: row] else { return .zero }
         
-        if let vitem = item as? VItem {
-            let width = collectionView.bounds.inset(by: collectionView.contentInset).width
-            return CGSize(width: width, height: vitem.estimatedHeight)
-        } else if let hitem = item as? HItem {
-            return hitem.size
+        if (((item as? PagerItem) != nil) || ((item as? HorizontalItem) != nil))  && numberOfColumns > 1 {
+           assertionFailure("Pager && Horizontal items cannot exsist within a multi columned sections")
+        }
+        
+        if let item = item as? HItem {
+            return item.size
+        } else if let item = item as? VItem {
+            let width = collectionView.bounds.inset(by: collectionView.contentInset).width/CGFloat(numberOfColumns)
+            let widthAdjustment: CGFloat = (numberOfColumns == 0) ? .zero : (0.18 + interitemSpacing)
+            // Having this widthAdjustment allows us to have multi columns. Not sure why it works but needs investigation.
+            
+            return CGSize(width: width - widthAdjustment, height: item.estimatedHeight)
         } else {
             return .zero
         }
-    }
-    
+    }    
 }
 
 extension Section {

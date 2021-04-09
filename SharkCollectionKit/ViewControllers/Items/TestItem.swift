@@ -75,7 +75,7 @@ final private class TestCell: UICollectionViewCell, BindableCell {
         contentView.HStack {
             label
             Space()
-        }
+        }.withHeight(100)
         
     }
 }

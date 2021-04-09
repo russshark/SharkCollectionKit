@@ -62,10 +62,9 @@ extension Section: SectionT {
     
     func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)? {
         
-        guard let item = items[safe: indexPath.row]?.with({ $0.parent = collectionView }) else { return nil }
-    
-        guard let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
-        
+        guard let item = items[safe: indexPath.row]?.with({ $0.parent = collectionView }),
+              let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
+            
         setSize(cell: cell, indexPath: indexPath, collectionView: collectionView)
 
         return (cell, item)

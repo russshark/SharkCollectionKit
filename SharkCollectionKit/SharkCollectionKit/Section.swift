@@ -26,6 +26,7 @@ final class Section {
     private var numberOfColumns: Int = 1
     private var inset: UIEdgeInsets = .zero
     private var isGrid: Bool = false
+    var collectionView: UICollectionView?
     
     // MARK: - Dependencies
     
@@ -35,6 +36,10 @@ final class Section {
 
     init(@GenericArrayBuilder<Item> items: () -> [Item]) {
         self.items = items()
+        self.interitemSpacing = .zero
+        self.interitemSpacing = .zero
+        self.inset = .zero
+        self.numberOfColumns = 1
     }
     
     // MARK: - Chaining
@@ -77,7 +82,12 @@ extension Section: SectionT {
     
     func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)? {
         
-        guard let item = items[safe: indexPath.row]?.with({ $0.parent = collectionView }),
+        self.collectionView = collectionView
+        
+        var _item = items[safe: indexPath.row]
+        _item?.parentSection = self
+        
+        guard let item = _item,
               let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
             
         setSize(cell: cell, indexPath: indexPath, collectionView: collectionView)

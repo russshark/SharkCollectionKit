@@ -80,10 +80,41 @@ extension ViewController: CollectionDatasource {
         .isGrid(true)
         .inset(UIEdgeInsets(top: 20, left: 20, bottom: 100, right: 20))
         
+        
+        Section {
+            HorizontalItem(spacing: 50) {
+                (0..<20).map { (itemNumber: Int) in
+                    SettingsItem(text: "Item: \(itemNumber)")
+                }
+            }.inset(25)
+
+            TestItem(text: "Some random text in here")
+            TestItem(text: "--------Footer--------")
+        }.inset(UIEdgeInsets(top: 40, left: 40, bottom: 10, right: 10))
+
+        Section {
+            TestItem(text: "New section")
+            TestItem(text: "--------Header--------")
+            TestItem(text: "TThis is a test")
+
+            PagerItem {
+                (0..<10).map { (pageNumber: Int) in
+                    PhotosItem(text: "Page \(pageNumber)")
+                }
+            }.spacing(10)
+        }.inset(UIEdgeInsets(top: 40, left: 40, bottom: 30, right: 40))
+        
+        Section {
+            (0..<8).map { (pageNumber: Int) in
+                TestItem(text: "Spacing \(pageNumber)")
+            }
+        }.inset(UIEdgeInsets(top: 20, left: 0, bottom: 140, right: 0))
+        .lineSpacing(30)
+        
         Section {
             TestItem(text: "Some random text in here")
             TestItem(text: "--------Footer--------")
-        }
+        }.inset(UIEdgeInsets(top: 20, left: 0, bottom: 140, right: 0))
         
 //
 //

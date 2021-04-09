@@ -22,6 +22,8 @@ final class CollectionController: NSObject {
     weak var delegate: CollectionDelegate?
     weak var datasource: CollectionDatasource?
     
+    var horizontalFlowLayout: UICollectionViewFlowLayout? = nil
+    
     // MARK: - Dependencies
     
     private let collectionView: UICollectionView
@@ -83,6 +85,7 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if let horizontalLayout = horizontalFlowLayout { return horizontalLayout.sectionInset }
         return sections[safe: section]?.sectionInset() ?? .zero
     }
     
@@ -91,6 +94,7 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if let horizontalLayout = horizontalFlowLayout { return horizontalLayout.minimumLineSpacing }
         return sections[safe: section]?.lineSpacing() ?? .zero
     }
     

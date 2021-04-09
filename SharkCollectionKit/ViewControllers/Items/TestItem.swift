@@ -24,7 +24,7 @@ final class TestItem: NSObject, VItem {
         return ItemCellBinder<TestCell, TestItem>.init(item: self)
     }
     
-    var parent: UICollectionView?
+    var parentSection: Section?
     
     var estimatedHeight: CGFloat = 50.0
 }

@@ -21,7 +21,7 @@ final class HorizontalItem: NSObject, VItem {
         self.items = items()
     }
     
-    var parent: UICollectionView?
+    var parentSection: Section?
     
     var binder: ItemCellBinderType {
         return ItemCellBinder<HorizontalCell, HorizontalItem>.init(item: self)
@@ -85,6 +85,7 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
             
             layout.sectionInset = UIEdgeInsets(top: .zero, left: item.inset, bottom: .zero, right: item.inset)
             layout.minimumLineSpacing = item.spacing
+            collection.horizontalFlowLayout = layout
         }
     }
 }

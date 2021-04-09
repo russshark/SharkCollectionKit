@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PagerItem: NSObject, VItem {
+final class PagerItem: VItem {
     
     //MARK: - Properties
 
@@ -15,6 +15,7 @@ final class PagerItem: NSObject, VItem {
     var spacing: CGFloat = .zero
     var inset: CGFloat = .zero
     var minVelocity: CGFloat = 2.4
+    var sectionInset: UIEdgeInsets = .zero
     
     //MARK: - Init
     
@@ -24,7 +25,7 @@ final class PagerItem: NSObject, VItem {
     
     //MARK: - VItem
     
-    var parent: UICollectionView?
+    var parentSection: Section?
     
     var binder: ItemCellBinderType {
         return ItemCellBinder<PagingCell, PagerItem>.init(item: self)
@@ -85,7 +86,7 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
 
     var item: PagerItem? {
         didSet {
-            guard let item = item, let parent = item.parent else {
+            guard let item = item, let parentSection = item.parentSection, let collectionView = parentSection.collectionView else {
                 assertionFailure("Item has no parent UICollectionView assocaiated with it. We need this to set the item size")
                 return
             }
@@ -94,7 +95,7 @@ final private class PagingCell: UICollectionViewCell, BindableCell {
             layout.minimumLineSpacing = item.spacing
             layout.minVelocity = item.minVelocity
             
-            let adjustedWidth = parent.bounds.inset(by: parent.contentInset).width - (item.inset * 2.0)
+            let adjustedWidth = collectionView.bounds.inset(by: collectionView.contentInset).inset(by: parentSection.sectionInset()).width - (item.inset * 2.0)
             layout.itemSize = .init(width: adjustedWidth, height: item.estimatedHeight)
         }
     }

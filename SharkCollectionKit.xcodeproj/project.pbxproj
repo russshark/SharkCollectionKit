@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC17985C261FC8C400CE68A0 /* PhotosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17985B261FC8C400CE68A0 /* PhotosItem.swift */; };
+		BC17986C261FE3A900CE68A0 /* SpaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17986B261FE3A900CE68A0 /* SpaceItem.swift */; };
 		BCA31A4B261A4F780050A483 /* PagerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A4A261A4F780050A483 /* PagerItem.swift */; };
 		BCA31A5D261A50800050A483 /* PagerCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */; };
 		BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A62261A554B0050A483 /* SettingsItem.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		BC17985B261FC8C400CE68A0 /* PhotosItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosItem.swift; sourceTree = "<group>"; };
+		BC17986B261FE3A900CE68A0 /* SpaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceItem.swift; sourceTree = "<group>"; };
 		BCA31A4A261A4F780050A483 /* PagerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerItem.swift; sourceTree = "<group>"; };
 		BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerCollectionViewLayout.swift; sourceTree = "<group>"; };
 		BCA31A62261A554B0050A483 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				BCF59BA926195E81009C11AF /* ItemCellBinder.swift */,
 				BCF59BA626193BD0009C11AF /* Item.swift */,
+				BC17986B261FE3A900CE68A0 /* SpaceItem.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				BCF59BA526193BBB009C11AF /* GenericArrayBuilder.swift in Sources */,
 				BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */,
 				BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */,
+				BC17986C261FE3A900CE68A0 /* SpaceItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

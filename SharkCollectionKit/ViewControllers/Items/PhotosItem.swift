@@ -24,7 +24,7 @@ final class PhotosItem: NSObject, HItem {
         return ItemCellBinder<PhotosCell, PhotosItem>.init(item: self)
     }
     
-    var parent: UICollectionView?
+    var parentSection: Section?
     
     var size: CGSize = .init(width: 100, height: 100)
 }

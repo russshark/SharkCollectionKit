@@ -11,9 +11,7 @@ final class PhotosItem: NSObject, HItem {
 
     let text: String
     
-    var didSelect: (() -> Void)?
 
-    
     //MARK: - Init
     
     init(text: String){

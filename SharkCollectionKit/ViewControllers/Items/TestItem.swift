@@ -7,13 +7,10 @@
 
 import UIKit
 
-final class TestItem: NSObject, VItem {
+final class TestItem: Selectable, VItem {
 
     let text: String
-    
-    var didSelect: (() -> Void)?
 
-    
     //MARK: - Init
     
     init(text: String){
@@ -43,12 +40,6 @@ final private class TestCell: UICollectionViewCell, BindableCell {
         super.init(frame: frame)
         setConstraints()
         styleView()
-        button.addTarget(self, action: #selector(handleRegister(sender:)), for: .touchUpInside)
-
-    }
-    
-    @objc func handleRegister(sender: UIButton){
-        item?.didSelect?()
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

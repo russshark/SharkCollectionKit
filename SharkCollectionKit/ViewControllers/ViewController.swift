@@ -72,7 +72,9 @@ extension ViewController: CollectionDatasource {
     func sections() -> [Section] {
         Section {
             (0..<6).map { (id: Int) in
-                TestItem(text: "Test: \(id)")
+                TestItem(text: "Test: \(id)").didSelect { item in
+                    print(item)
+                }
             }
         }.lineSpacing(10)
         .columnSpacing(10)
@@ -148,9 +150,7 @@ extension ViewController: CollectionDelegate {
     
     func bindItem(_ item: Item) {
         if let item = item as? TestItem {
-            item.didSelect = {
-                print(item)
-            }
+ 
         }
     }
     

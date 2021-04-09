@@ -10,10 +10,7 @@ import UIKit
 final class SettingsItem: NSObject, HItem {
 
     let text: String
-    
-    var didSelect: (() -> Void)?
 
-    
     //MARK: - Init
     
     init(text: String){

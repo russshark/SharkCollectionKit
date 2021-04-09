@@ -29,6 +29,7 @@
 		BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BAE261963BE009C11AF /* TestItem.swift */; };
 		BCF59BB126196916009C11AF /* Stacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BB026196916009C11AF /* Stacks.swift */; };
 		BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BB226196AAF009C11AF /* CollectionController.swift */; };
+		BCFC599F26211A88000D7CE1 /* ItemSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC599E26211A88000D7CE1 /* ItemSelectable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		BCF59BAE261963BE009C11AF /* TestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestItem.swift; sourceTree = "<group>"; };
 		BCF59BB026196916009C11AF /* Stacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacks.swift; sourceTree = "<group>"; };
 		BCF59BB226196AAF009C11AF /* CollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
+		BCFC599E26211A88000D7CE1 /* ItemSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			children = (
 				BCF59BA926195E81009C11AF /* ItemCellBinder.swift */,
 				BCF59BA626193BD0009C11AF /* Item.swift */,
+				BCFC599E26211A88000D7CE1 /* ItemSelectable.swift */,
 				BC17986B261FE3A900CE68A0 /* SpaceItem.swift */,
 			);
 			path = Item;
@@ -379,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFC599F26211A88000D7CE1 /* ItemSelectable.swift in Sources */,
 				BCF59BB126196916009C11AF /* Stacks.swift in Sources */,
 				BCAD06A9261938D3007C89CA /* ViewController.swift in Sources */,
 				BCAD06EB26193B36007C89CA /* Section.swift in Sources */,

@@ -72,6 +72,18 @@ extension ViewController: CollectionDatasource {
         
         Section {
             TestCell(test: "tet")
+            TestCell(test: "tet")
+            TestCell(test: "tet")
+            TestCell(test: "tet2")
+            TestCell(test: "tet")
+            TestCell(test: "tet2")
+            TestCell2(test: "tet")
+            TestCell2(test: "tet2")
+            TestCell2(test: "tet")
+            TestCell2(test: "tet2")
+            TestCell(test: "tet2")
+            TestCell2(test: "tet2")
+            TestCell(test: "tet")
         }
         
 

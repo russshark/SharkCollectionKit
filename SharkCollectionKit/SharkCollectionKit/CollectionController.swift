@@ -67,11 +67,11 @@ extension CollectionController: UICollectionViewDelegate {
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let item = sections[safe: indexPath.section]?.items[safe: indexPath.row] else { return }
-        
-        if let item = item as? BaseItem {
-            item.didSelect?(indexPath)
-        }
+//        guard let item = sections[safe: indexPath.section]?.items[safe: indexPath.row] else { return }
+//        
+//        if let item = item as? BaseItem {
+//            item.didSelect?(indexPath)
+//        }
     }
 }
 

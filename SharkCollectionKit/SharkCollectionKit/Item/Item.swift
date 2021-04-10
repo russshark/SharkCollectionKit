@@ -11,6 +11,7 @@ class BaseItem {}
 
 protocol Item {
     var parentSection: Section? { get set }
+    //var viewID: String { get set }
 }
 
 protocol VItem: Item {

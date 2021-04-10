@@ -85,15 +85,15 @@ extension Section: SectionT {
         self.collectionView = collectionView
         
         var _item = items[safe: indexPath.row]
-        _item?.parentSection = self
+        //_item?.parentSection = self
         
-        guard let item = items[safe: indexPath.row] as? UICollectionViewCell else {
+        guard let item = items[safe: indexPath.row] as? UIView else {
             return nil
         }
         
         let cellId = String(describing: item)
         
-        collectionView.register(item.classForCoder, forCellWithReuseIdentifier: cellId)
+        collectionView.register(GenericCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         // collectionView.register(CellType.self, forCellWithReuseIdentifier: cellId)
         //
         //        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CellType
@@ -102,7 +102,7 @@ extension Section: SectionT {
             return nil
         }
         
-            
+        cell.testView = item
         setSize(cell: cell, indexPath: indexPath, collectionView: collectionView)
 
         return cell

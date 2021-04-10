@@ -12,18 +12,33 @@ final class GenericCollectionViewCell: UICollectionViewCell {
     
     //MARK: - UI
     
-    var testView: UIView? {
+    public private(set) var view: UIView?
+    
+    weak var testView: UIView? {
         didSet {
-            VStack {
-                testView
+            guard self.view == nil else {
+              return
             }
+
+            self.view = testView
+            guard let testView = testView else { return }
+            testView.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addSubview(testView)
+            NSLayoutConstraint.activate([
+                testView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                testView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                testView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                testView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            ])
         }
     }
     
-//    convenience init(<#parameters#>) {
-//        <#statements#>
-//    }
-//    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        print("refetcg")
+    }
+    
+
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     //MARK: - Item

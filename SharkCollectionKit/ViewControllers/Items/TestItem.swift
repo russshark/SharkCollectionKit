@@ -10,6 +10,12 @@ import UIKit
 final class TestItem: BaseItem, VItem {
 
     let text: String
+    
+    var _lol: (() -> Void)?
+    func lol(_ v: (() -> Void)?) -> Self {
+        _lol = v
+        return self
+    }
 
     //MARK: - Init
     
@@ -49,6 +55,7 @@ final private class TestCell: UICollectionViewCell, BindableCell {
     var item: TestItem? {
         didSet {
             label.text = item?.text
+            item?._lol?()
         }
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SectionT {
-    func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)?
+    func cellFor(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> UICollectionViewCell?
     func numberOfItems() -> Int
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize
     
@@ -80,7 +80,7 @@ extension Section: SectionT {
 
     // MARK: - Config
     
-    func cellItem(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (UICollectionViewCell, Item)? {
+    func cellFor(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> UICollectionViewCell? {
         
         self.collectionView = collectionView
         
@@ -92,7 +92,7 @@ extension Section: SectionT {
             
         setSize(cell: cell, indexPath: indexPath, collectionView: collectionView)
 
-        return (cell, item)
+        return cell
     }
     
     func numberOfItems() -> Int {

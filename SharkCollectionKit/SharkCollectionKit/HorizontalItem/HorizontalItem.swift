@@ -71,7 +71,6 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
         contentView.VStack {
             collectionView
         }
-        collection.delegate = self
         collection.datasource = self
     }
     
@@ -95,16 +94,5 @@ extension HorizontalCell: CollectionDatasource {
         Section {
             item?.items ?? []
         }
-    }
-}
-
-extension HorizontalCell: CollectionDelegate {
-    
-    func bindItem(_ item: Item) {
-        
-    }
-    
-    func didSelectItem(item: Item, indexPath: IndexPath) {
-        
     }
 }

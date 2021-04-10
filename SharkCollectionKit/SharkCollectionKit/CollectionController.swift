@@ -6,11 +6,6 @@
 //
 import UIKit
 
-protocol CollectionDelegate: AnyObject {
-    func bindItem(_ item: Item)
-    func didSelectItem(item: Item, indexPath: IndexPath)
-}
-
 protocol CollectionDatasource: AnyObject {
     @GenericArrayBuilder<Section> func sections() -> [Section]
 }
@@ -19,7 +14,6 @@ final class CollectionController: NSObject {
     
     // MARK: - Delegate
     
-    weak var delegate: CollectionDelegate?
     weak var datasource: CollectionDatasource?
     
     var horizontalFlowLayout: UICollectionViewFlowLayout? = nil
@@ -59,13 +53,11 @@ extension CollectionController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         guard let section = sections[safe: indexPath.section],
-              let (cell, item) = section.cellItem(forIndexPath: indexPath, collectionView: collectionView) else {
+              let cell = section.cellFor(forIndexPath: indexPath, collectionView: collectionView) else {
             assertionFailure("We should always return a cell and item")
             return UICollectionViewCell()
         }
-        
-        delegate?.bindItem(item) // Pass back to owner so we can bind any item callbacks e.c.t
-        
+
         return cell
     }
 }
@@ -75,7 +67,7 @@ extension CollectionController: UICollectionViewDelegate {
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let (_, item) = sections[safe: indexPath.section]?.cellItem(forIndexPath: indexPath, collectionView: collectionView) else { return }
+        guard let item = sections[safe: indexPath.section]?.items[safe: indexPath.row] else { return }
         
         if let item = item as? BaseItem {
             item.didSelect?(indexPath)

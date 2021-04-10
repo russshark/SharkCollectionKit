@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PhotosItem: NSObject, HItem {
+final class PhotosItem: BaseItem, HItem {
 
     let text: String
     

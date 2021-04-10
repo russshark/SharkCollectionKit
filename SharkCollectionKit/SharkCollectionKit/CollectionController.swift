@@ -77,7 +77,7 @@ extension CollectionController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let (_, item) = sections[safe: indexPath.section]?.cellItem(forIndexPath: indexPath, collectionView: collectionView) else { return }
         
-        if let item = item as? Selectable {
+        if let item = item as? BaseItem {
             item.didSelect?(indexPath)
         }
     }

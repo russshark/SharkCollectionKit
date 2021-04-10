@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TestItem: Selectable, VItem {
+final class TestItem: BaseItem, VItem {
 
     let text: String
 

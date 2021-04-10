@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsItem: NSObject, HItem {
+final class SettingsItem: BaseItem, HItem {
 
     let text: String
 

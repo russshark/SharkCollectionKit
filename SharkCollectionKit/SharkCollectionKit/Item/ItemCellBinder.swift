@@ -20,6 +20,8 @@ final class ItemCellBinder<CellType: BindableCell, DataType>: ItemCellBinderType
     
     // MARK: - Dependencies
     
+    var _didSelect: ((IndexPath) -> Void)? = nil
+    
     private let item: DataType
     
     // MARK: - Init

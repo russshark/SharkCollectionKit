@@ -87,8 +87,21 @@ extension Section: SectionT {
         var _item = items[safe: indexPath.row]
         _item?.parentSection = self
         
-        guard let item = _item,
-              let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
+        guard let item = items[safe: indexPath.row] as? UICollectionViewCell else {
+            return nil
+        }
+        
+        let cellId = String(describing: item)
+        
+        collectionView.register(item.classForCoder, forCellWithReuseIdentifier: cellId)
+        // collectionView.register(CellType.self, forCellWithReuseIdentifier: cellId)
+        //
+        //        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CellType
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? GenericCollectionViewCell else {
+            return nil
+        }
+        
             
         setSize(cell: cell, indexPath: indexPath, collectionView: collectionView)
 
@@ -115,7 +128,7 @@ extension Section: SectionT {
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize {
         guard let item = items[safe: row] else { return .zero }
         
-        if (((item as? PagerItem) != nil) || ((item as? HorizontalItem) != nil))  && numberOfColumns > 1 {
+        if (((item as? PagingCell) != nil) || ((item as? HorizontalCell) != nil))  && numberOfColumns > 1 {
            assertionFailure("Pager && Horizontal items cannot exsist within a multi columned sections")
         }
         

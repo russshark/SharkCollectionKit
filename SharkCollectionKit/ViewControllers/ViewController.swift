@@ -71,24 +71,9 @@ extension ViewController: CollectionDatasource {
     func sections() -> [Section] {
         
         Section {
-            TestItem(text: "Some random text in here")
+            TestCell(test: "tet")
         }
         
-        Section {
 
-            (0..<6).map { (id: Int) in
-                TestItem(text: "Test: \(id)").didSelect { item in
-                    print(item)
-                }
-            }
-        }.lineSpacing(10)
-        .columnSpacing(10)
-        .columns(3)
-        .isGrid(true)
-        .inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
-        
-        Section {
-            TestItem(text: "Some random text in here")
-        }
     }
 }

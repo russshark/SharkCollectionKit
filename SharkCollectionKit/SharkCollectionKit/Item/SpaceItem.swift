@@ -7,43 +7,24 @@
 
 import UIKit
 
-final class VSpaceItem: VItem {
-
-    let height: CGFloat
-    
-    //MARK: - Init
-    
-    init(_ height: CGFloat){
-        self.height = height
-    }
+final private class VSpaceCell: UICollectionViewCell, VItem {
     
     var parentSection: Section?
-    
-    var binder: ItemCellBinderType {
-        return ItemCellBinder<VSpaceCell, VSpaceItem>.init(item: self)
-    }
     
     var estimatedHeight: CGFloat {
         return height
     }
-}
-
-final private class VSpaceCell: UICollectionViewCell, BindableCell {
     
     // MARK: - Init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private let height: CGFloat
+    
+    init(height: CGFloat){
+        self.height = height
+        super.init(frame: .zero)
         contentView.backgroundColor = .clear
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
-    //MARK: - Item
 
-    var item: VSpaceItem? {
-        didSet {
-            heightAnchor.constraint(equalToConstant: item?.estimatedHeight ?? .zero).isActive = true
-        }
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
 }

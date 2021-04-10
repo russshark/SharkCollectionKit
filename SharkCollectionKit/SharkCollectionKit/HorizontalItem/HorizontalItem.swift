@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class HorizontalItem: NSObject, VItem {
-
+final class HorizontalCell: UICollectionViewCell, VItem {
+    
     let items: [HItem]
     var spacing: CGFloat = .zero
     var inset: CGFloat = .zero
@@ -19,13 +19,20 @@ final class HorizontalItem: NSObject, VItem {
     init(spacing: CGFloat = .zero, @GenericArrayBuilder<HItem> items: () -> [HItem]){
         self.spacing = spacing
         self.items = items()
+        super.init(frame: .zero)
+        contentView.backgroundColor = .clear
+        contentView.VStack {
+            collectionView
+        }
+        collection.datasource = self
+        layout.sectionInset = UIEdgeInsets(top: .zero, left: inset, bottom: .zero, right: inset)
+        layout.minimumLineSpacing = spacing
+        collection.horizontalFlowLayout = layout
     }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     var parentSection: Section?
-    
-    var binder: ItemCellBinderType {
-        return ItemCellBinder<HorizontalCell, HorizontalItem>.init(item: self)
-    }
 
     var estimatedHeight: CGFloat {
         return items.compactMap({ $0.size.height }).max() ?? .zero
@@ -44,9 +51,6 @@ final class HorizontalItem: NSObject, VItem {
         self.inset = inset
         return self
     }
-}
-
-final private class HorizontalCell: UICollectionViewCell, BindableCell {
     
     //MARK: - UI
         
@@ -63,36 +67,12 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
         return collectionView
     }()
     
-    // MARK: -
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentView.backgroundColor = .clear
-        contentView.VStack {
-            collectionView
-        }
-        collection.datasource = self
-    }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
-    //MARK: - Item
-
-    var item: HorizontalItem? {
-        didSet {
-            guard let item = item else { return }
-            
-            layout.sectionInset = UIEdgeInsets(top: .zero, left: item.inset, bottom: .zero, right: item.inset)
-            layout.minimumLineSpacing = item.spacing
-            collection.horizontalFlowLayout = layout
-        }
-    }
 }
  
 extension HorizontalCell: CollectionDatasource {
     func sections() -> [Section] {
         Section {
-            item?.items ?? []
+            items
         }
     }
 }

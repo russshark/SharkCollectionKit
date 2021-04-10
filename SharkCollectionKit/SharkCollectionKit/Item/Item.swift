@@ -10,7 +10,6 @@ import UIKit
 class BaseItem {}
 
 protocol Item {
-    var binder: ItemCellBinderType { get }
     var parentSection: Section? { get set }
 }
 

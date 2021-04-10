@@ -11,6 +11,10 @@ final class VSpaceItem: VItem {
 
     let height: CGFloat
     
+    static func maker(data: String) -> Item {
+        return VSpaceItem(1)
+    }
+    
     //MARK: - Init
     
     init(_ height: CGFloat){

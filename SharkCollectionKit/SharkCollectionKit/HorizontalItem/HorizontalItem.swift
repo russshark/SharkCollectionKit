@@ -14,6 +14,10 @@ final class HorizontalItem: NSObject, VItem {
     var inset: CGFloat = .zero
     var velocity: CGFloat = 1.5
     
+    static func maker(data: String) -> Item {
+        return HorizontalItem { }
+    }
+    
     //MARK: - Init
     
     init(spacing: CGFloat = .zero, @GenericArrayBuilder<HItem> items: () -> [HItem]){
@@ -81,7 +85,6 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
     var item: HorizontalItem? {
         didSet {
             guard let item = item else { return }
-            
             layout.sectionInset = UIEdgeInsets(top: .zero, left: item.inset, bottom: .zero, right: item.inset)
             layout.minimumLineSpacing = item.spacing
             collection.horizontalFlowLayout = layout

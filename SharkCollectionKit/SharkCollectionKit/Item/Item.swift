@@ -7,11 +7,16 @@
 
 import UIKit
 
-class BaseItem {}
+protocol ItemData: Decodable {
+    
+}
 
 protocol Item {
     var binder: ItemCellBinderType { get }
     var parentSection: Section? { get set }
+}
+
+protocol DataDrivenItem: Item, Decodable{
 }
 
 protocol VItem: Item {

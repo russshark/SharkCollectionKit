@@ -46,10 +46,24 @@ final class ViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         setConstraints()
         collection.datasource = self
+        collection.delegate = self
         view.backgroundColor = .blue
         collectionView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         collectionView.alwaysBounceVertical = true
         collectionView.contentInset = .init(top: 40, left: 20, bottom: 0, right: 20)
+
+
+        HomeService.getHomeSections { sections in
+            self.homeSections = sections
+            self.collection.refresh()
+            
+        }
+    }
+    
+    var homeSections: [Section] = [] {
+        didSet {
+            
+        }
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -70,25 +84,17 @@ extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
         
-        Section {
-            TestItem(text: "Some random text in here")
-        }
-        
-        Section {
+        homeSections
+    }
+}
 
-            (0..<6).map { (id: Int) in
-                TestItem(text: "Test: \(id)").didSelect { item in
-                    print(item)
-                }
-            }
-        }.lineSpacing(10)
-        .columnSpacing(10)
-        .columns(3)
-        .isGrid(true)
-        .inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
+extension ViewController: CollectionDelegate {
+    
+    func bindItem(_ item: Item) {
         
-        Section {
-            TestItem(text: "Some random text in here")
-        }
+    }
+    
+    func didSelectItem(item: Item, indexPath: IndexPath) {
+        print(indexPath)
     }
 }

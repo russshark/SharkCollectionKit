@@ -38,7 +38,7 @@ final class ItemCellBinder<CellType: BindableCell, DataType>: ItemCellBinderType
         
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CellType
         
-        cell?.item = item //Setting the BindableCell item
+        cell?.item = item
 
         return cell
     }

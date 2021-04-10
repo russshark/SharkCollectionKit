@@ -7,13 +7,17 @@
 
 import UIKit
 
-final class PhotosItem: BaseItem, HItem {
+final class PhotosItem: HItem {
+    static func maker(data: String) -> Item {
+        return PhotosItem(text: "")
+    }
+    
 
     let text: String
     
 
     //MARK: - Init
-    
+        
     init(text: String){
         self.text = text
     }

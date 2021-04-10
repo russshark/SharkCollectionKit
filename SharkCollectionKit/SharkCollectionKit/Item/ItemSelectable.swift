@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol ItemSelectable {}
+class SelectableItem {}
 
-extension BaseItem: ItemSelectable {
+extension SelectableItem {
 
     func didSelect(_ index: ((IndexPath) -> Void)?) -> Self {
         didSelect = index
@@ -20,10 +20,10 @@ extension BaseItem: ItemSelectable {
     
     var didSelect: ((IndexPath) -> Void)? {
         get {
-            return BaseItem._didSelect
+            return SelectableItem._didSelect
         }
         set(newValue) {
-            BaseItem._didSelect = newValue
+            SelectableItem._didSelect = newValue
         }
     }
 }

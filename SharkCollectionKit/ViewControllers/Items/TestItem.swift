@@ -7,22 +7,40 @@
 
 import UIKit
 
-final class TestItem: BaseItem, VItem {
-
-    let text: String
+struct TestData: Decodable {
     
-    var _lol: (() -> Void)?
-    func lol(_ v: (() -> Void)?) -> Self {
-        _lol = v
+    let title: String
+}
+
+class TestItem: SelectableItem, VItem, DataDrivenItem {
+
+    let text: String = "rr"
+    
+    var someViewAction: (() -> Void)?
+    func someViewAction(_ action: (() -> Void)?) -> Self {
+        someViewAction = action
         return self
     }
-
-    //MARK: - Init
     
-    init(text: String){
-        self.text = text
+    private enum CodingKeys: CodingKey {
+        case data
     }
     
+    let testData: TestData?
+    
+    required init(from decoder: Decoder) throws {
+        do {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            let test = try container.decode(TestData.self, forKey: .data)
+            self.testData = test
+            
+        } catch {
+            self.testData = nil
+        }
+    }
+    
+    //MARK: - Init
+
     var binder: ItemCellBinderType {
         return ItemCellBinder<TestCell, TestItem>.init(item: self)
     }
@@ -50,12 +68,12 @@ final private class TestCell: UICollectionViewCell, BindableCell {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    //MARK: - Item
+    //MARK: - Itemyou
 
     var item: TestItem? {
         didSet {
-            label.text = item?.text
-            item?._lol?()
+            label.text = item?.testData?.title
+            item?.someViewAction?()
         }
     }
     

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		BC17985C261FC8C400CE68A0 /* PhotosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17985B261FC8C400CE68A0 /* PhotosItem.swift */; };
 		BC17986C261FE3A900CE68A0 /* SpaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17986B261FE3A900CE68A0 /* SpaceItem.swift */; };
+		BC3DD51D26222DF60039DD98 /* BackendDriven.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD51C26222DF60039DD98 /* BackendDriven.swift */; };
+		BC3DD523262230620039DD98 /* HomeFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD522262230620039DD98 /* HomeFeedService.swift */; };
+		BC3DD528262230730039DD98 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD527262230730039DD98 /* Bundle.swift */; };
+		BC3DD52D262230A50039DD98 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD52C262230A50039DD98 /* HomeModel.swift */; };
+		BC3DD535262230C00039DD98 /* ItemIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD534262230C00039DD98 /* ItemIdentifier.swift */; };
+		BC3DD540262237950039DD98 /* HomeFeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = BC3DD53F262237950039DD98 /* HomeFeedData.json */; };
 		BCA31A4B261A4F780050A483 /* PagerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A4A261A4F780050A483 /* PagerItem.swift */; };
 		BCA31A5D261A50800050A483 /* PagerCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */; };
 		BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A62261A554B0050A483 /* SettingsItem.swift */; };
@@ -52,6 +58,12 @@
 /* Begin PBXFileReference section */
 		BC17985B261FC8C400CE68A0 /* PhotosItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosItem.swift; sourceTree = "<group>"; };
 		BC17986B261FE3A900CE68A0 /* SpaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceItem.swift; sourceTree = "<group>"; };
+		BC3DD51C26222DF60039DD98 /* BackendDriven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendDriven.swift; sourceTree = "<group>"; };
+		BC3DD522262230620039DD98 /* HomeFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedService.swift; sourceTree = "<group>"; };
+		BC3DD527262230730039DD98 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		BC3DD52C262230A50039DD98 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		BC3DD534262230C00039DD98 /* ItemIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemIdentifier.swift; sourceTree = "<group>"; };
+		BC3DD53F262237950039DD98 /* HomeFeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomeFeedData.json; sourceTree = "<group>"; };
 		BCA31A4A261A4F780050A483 /* PagerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerItem.swift; sourceTree = "<group>"; };
 		BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerCollectionViewLayout.swift; sourceTree = "<group>"; };
 		BCA31A62261A554B0050A483 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
@@ -114,6 +126,18 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		BC3DD521262230510039DD98 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BC3DD52C262230A50039DD98 /* HomeModel.swift */,
+				BC3DD51C26222DF60039DD98 /* BackendDriven.swift */,
+				BC3DD534262230C00039DD98 /* ItemIdentifier.swift */,
+				BC3DD522262230620039DD98 /* HomeFeedService.swift */,
+				BC3DD53F262237950039DD98 /* HomeFeedData.json */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		BCA31A4F261A50260050A483 /* Paging Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +189,7 @@
 			children = (
 				BCAD06DA26193952007C89CA /* App Delegate */,
 				BCAD06E12619395F007C89CA /* ViewControllers */,
+				BC3DD521262230510039DD98 /* Services */,
 				BCF59BAB26196172009C11AF /* Extensions */,
 				BCAD06E526193995007C89CA /* Resources */,
 				BCAD06E926193AF4007C89CA /* SharkCollectionKit */,
@@ -247,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				BCF59BAC26196192009C11AF /* Extensions.swift */,
+				BC3DD527262230730039DD98 /* Bundle.swift */,
 				BCF59BB026196916009C11AF /* Stacks.swift */,
 				BCA31A6A261A7D550050A483 /* TestingStacks.swift */,
 			);
@@ -357,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCAD06B1261938D5007C89CA /* LaunchScreen.storyboard in Resources */,
+				BC3DD540262237950039DD98 /* HomeFeedData.json in Resources */,
 				BCAD06AE261938D5007C89CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +411,9 @@
 			files = (
 				BCFC599F26211A88000D7CE1 /* ItemSelectable.swift in Sources */,
 				BCF59BB126196916009C11AF /* Stacks.swift in Sources */,
+				BC3DD51D26222DF60039DD98 /* BackendDriven.swift in Sources */,
 				BCAD06A9261938D3007C89CA /* ViewController.swift in Sources */,
+				BC3DD523262230620039DD98 /* HomeFeedService.swift in Sources */,
 				BCAD06EB26193B36007C89CA /* Section.swift in Sources */,
 				BCAD06A5261938D3007C89CA /* AppDelegate.swift in Sources */,
 				BCF59BAD26196192009C11AF /* Extensions.swift in Sources */,
@@ -397,10 +426,13 @@
 				BCF59BAA26195E81009C11AF /* ItemCellBinder.swift in Sources */,
 				BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */,
 				BCA31A4B261A4F780050A483 /* PagerItem.swift in Sources */,
+				BC3DD535262230C00039DD98 /* ItemIdentifier.swift in Sources */,
 				BCF59BA526193BBB009C11AF /* GenericArrayBuilder.swift in Sources */,
 				BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */,
+				BC3DD528262230730039DD98 /* Bundle.swift in Sources */,
 				BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */,
 				BC17986C261FE3A900CE68A0 /* SpaceItem.swift in Sources */,
+				BC3DD52D262230A50039DD98 /* HomeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

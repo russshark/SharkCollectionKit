@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsItem: BaseItem, HItem {
+final class SettingsItem: SelectableItem, HItem {
 
     let text: String
 
@@ -15,6 +15,10 @@ final class SettingsItem: BaseItem, HItem {
     
     init(text: String){
         self.text = text
+    }
+    
+    static func maker(data: String) -> Item {
+        return SettingsItem(text: "")
     }
     
     var binder: ItemCellBinderType {

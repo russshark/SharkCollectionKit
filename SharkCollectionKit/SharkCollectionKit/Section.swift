@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SectionT {
-    func cellFor(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> UICollectionViewCell?
+    func cellFor(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (Item, UICollectionViewCell)?
     func numberOfItems() -> Int
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize
     
@@ -80,19 +80,19 @@ extension Section: SectionT {
 
     // MARK: - Config
     
-    func cellFor(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> UICollectionViewCell? {
+    func cellFor(forIndexPath indexPath: IndexPath, collectionView: UICollectionView) -> (Item, UICollectionViewCell)? {
         
         self.collectionView = collectionView
         
-        var _item = items[safe: indexPath.row]
-        _item?.parentSection = self
+        var item = items[safe: indexPath.row]
+        item?.parentSection = self
         
-        guard let item = _item,
-              let cell = item.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
+        guard let boundItem = item,
+              let cell = boundItem.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
             
         setSize(cell: cell, indexPath: indexPath, collectionView: collectionView)
 
-        return cell
+        return (boundItem, cell)
     }
     
     func numberOfItems() -> Int {
@@ -122,14 +122,16 @@ extension Section: SectionT {
         if let item = item as? HItem {
             return item.size
         } else if let item = item as? VItem {
-            let width = collectionView.bounds.inset(by: collectionView.contentInset).inset(by: inset).width/CGFloat(numberOfColumns)
+            let width = collectionView.bounds.inset(by: collectionView.contentInset)
+                                             .inset(by: inset).width/CGFloat(numberOfColumns)
+            
             let widthAdjustment: CGFloat = (numberOfColumns == 0) ? .zero : (0.18 + interitemSpacing)
             // Having this widthAdjustment allows us to have multi columns. Not sure why it works but needs investigation.
             
             return CGSize(width: width - widthAdjustment, height: item.estimatedHeight)
-        } else {
-            return .zero
         }
+        
+        return .zero
     }
     
     func sectionInset() -> UIEdgeInsets {

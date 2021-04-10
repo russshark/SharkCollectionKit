@@ -23,6 +23,10 @@ final class PagerItem: VItem {
         self.items = items()
     }
     
+    static func maker(data: String) -> Item {
+        return PagerItem { }
+    }
+    
     //MARK: - VItem
     
     var parentSection: Section?

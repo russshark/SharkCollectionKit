@@ -30,13 +30,6 @@ extension Chainable {
         try block(self)
         return self
     }
-
-    @discardableResult
-    func mutatedWith(_ block: (inout Self) -> Void) -> Self {
-        var value = self
-        block(&value)
-        return value
-    }
 }
 
 extension NSObject: Chainable {}

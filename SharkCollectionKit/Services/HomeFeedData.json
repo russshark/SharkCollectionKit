@@ -1,46 +1,23 @@
 {
     "sections": [
         {
+            "spacing": 30,
             "items": [
                 {
-                    "id": "TestItem",
-                    "data": {
-                        "title": "This ia test"
-                    }
+                    "id": "BaseTestItem",
+                    "title": "This ia test"
                 },
                 {
-                    "id": "TestItem",
-                    "data": {
-                        "title": "This ia test"
-                    }
+                    "id": "TestItem2",
+                    "title": "This ia tefgf gfgfggfgst"
                 },
                 {
-                    "id": "TestItem",
-                    "data": {
-                        "title": "This ia test"
-                    }
+                    "id": "BaseTestItem",
+                    "title": "This ia test"
                 },
                 {
-                    "id": "TestItem",
-                    "data": {
-                        "title": "This ia test"
-                    }
-                }
-            ]
-        },
-        {
-            "items": [
-                {
-                    "id": "TestItem",
-                    "data": {
-                        "title": "This ia test"
-                    }
-                },
-                {
-                    "id": "TestItem",
-                    "data": {
-                        "title": "This ia test"
-                    }
+                    "id": "BaseTestItem",
+                    "title": "This ia test"
                 }
             ]
         }

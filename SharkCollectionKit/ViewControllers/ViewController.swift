@@ -60,11 +60,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    var homeSections: [Section] = [] {
-        didSet {
-            
-        }
-    }
+    var homeSections: [Section] = []
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -83,7 +79,6 @@ final class ViewController: UIViewController {
 extension ViewController: CollectionDatasource {
     
     func sections() -> [Section] {
-        
         homeSections
     }
 }

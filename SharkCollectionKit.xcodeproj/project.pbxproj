@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC17985C261FC8C400CE68A0 /* PhotosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17985B261FC8C400CE68A0 /* PhotosItem.swift */; };
 		BC17986C261FE3A900CE68A0 /* SpaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17986B261FE3A900CE68A0 /* SpaceItem.swift */; };
 		BC3DD51D26222DF60039DD98 /* BackendDriven.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD51C26222DF60039DD98 /* BackendDriven.swift */; };
 		BC3DD523262230620039DD98 /* HomeFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD522262230620039DD98 /* HomeFeedService.swift */; };
@@ -15,9 +14,11 @@
 		BC3DD52D262230A50039DD98 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD52C262230A50039DD98 /* HomeModel.swift */; };
 		BC3DD535262230C00039DD98 /* ItemIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD534262230C00039DD98 /* ItemIdentifier.swift */; };
 		BC3DD540262237950039DD98 /* HomeFeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = BC3DD53F262237950039DD98 /* HomeFeedData.json */; };
+		BC3DD552262269CA0039DD98 /* TestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD551262269CA0039DD98 /* TestItem.swift */; };
+		BC3DD55A26226A3D0039DD98 /* TestCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD55926226A3D0039DD98 /* TestCell2.swift */; };
+		BC3DD55F26226ED00039DD98 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD55E26226ED00039DD98 /* TestModel.swift */; };
 		BCA31A4B261A4F780050A483 /* PagerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A4A261A4F780050A483 /* PagerItem.swift */; };
 		BCA31A5D261A50800050A483 /* PagerCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */; };
-		BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A62261A554B0050A483 /* SettingsItem.swift */; };
 		BCA31A6B261A7D550050A483 /* TestingStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA31A6A261A7D550050A483 /* TestingStacks.swift */; };
 		BCA5556C261BDA9B007754CD /* HorizontalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5556B261BDA9B007754CD /* HorizontalItem.swift */; };
 		BCAD06A5261938D3007C89CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD06A4261938D3007C89CA /* AppDelegate.swift */; };
@@ -32,7 +33,7 @@
 		BCF59BA726193BD0009C11AF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA626193BD0009C11AF /* Item.swift */; };
 		BCF59BAA26195E81009C11AF /* ItemCellBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BA926195E81009C11AF /* ItemCellBinder.swift */; };
 		BCF59BAD26196192009C11AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BAC26196192009C11AF /* Extensions.swift */; };
-		BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BAE261963BE009C11AF /* TestItem.swift */; };
+		BCF59BAF261963BE009C11AF /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BAE261963BE009C11AF /* TestCell.swift */; };
 		BCF59BB126196916009C11AF /* Stacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BB026196916009C11AF /* Stacks.swift */; };
 		BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59BB226196AAF009C11AF /* CollectionController.swift */; };
 		BCFC599F26211A88000D7CE1 /* ItemSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC599E26211A88000D7CE1 /* ItemSelectable.swift */; };
@@ -56,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BC17985B261FC8C400CE68A0 /* PhotosItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosItem.swift; sourceTree = "<group>"; };
 		BC17986B261FE3A900CE68A0 /* SpaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceItem.swift; sourceTree = "<group>"; };
 		BC3DD51C26222DF60039DD98 /* BackendDriven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendDriven.swift; sourceTree = "<group>"; };
 		BC3DD522262230620039DD98 /* HomeFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedService.swift; sourceTree = "<group>"; };
@@ -64,9 +64,11 @@
 		BC3DD52C262230A50039DD98 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		BC3DD534262230C00039DD98 /* ItemIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemIdentifier.swift; sourceTree = "<group>"; };
 		BC3DD53F262237950039DD98 /* HomeFeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomeFeedData.json; sourceTree = "<group>"; };
+		BC3DD551262269CA0039DD98 /* TestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestItem.swift; sourceTree = "<group>"; };
+		BC3DD55926226A3D0039DD98 /* TestCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell2.swift; sourceTree = "<group>"; };
+		BC3DD55E26226ED00039DD98 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		BCA31A4A261A4F780050A483 /* PagerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerItem.swift; sourceTree = "<group>"; };
 		BCA31A5C261A50800050A483 /* PagerCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerCollectionViewLayout.swift; sourceTree = "<group>"; };
-		BCA31A62261A554B0050A483 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		BCA31A6A261A7D550050A483 /* TestingStacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingStacks.swift; sourceTree = "<group>"; };
 		BCA5556B261BDA9B007754CD /* HorizontalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalItem.swift; sourceTree = "<group>"; };
 		BCAD06A1261938D3007C89CA /* SharkCollectionKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharkCollectionKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +89,7 @@
 		BCF59BA626193BD0009C11AF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		BCF59BA926195E81009C11AF /* ItemCellBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellBinder.swift; sourceTree = "<group>"; };
 		BCF59BAC26196192009C11AF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		BCF59BAE261963BE009C11AF /* TestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestItem.swift; sourceTree = "<group>"; };
+		BCF59BAE261963BE009C11AF /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		BCF59BB026196916009C11AF /* Stacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacks.swift; sourceTree = "<group>"; };
 		BCF59BB226196AAF009C11AF /* CollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
 		BCFC599E26211A88000D7CE1 /* ItemSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectable.swift; sourceTree = "<group>"; };
@@ -138,6 +140,17 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		BC3DD54D262269B20039DD98 /* Test Item */ = {
+			isa = PBXGroup;
+			children = (
+				BC3DD55E26226ED00039DD98 /* TestModel.swift */,
+				BC3DD551262269CA0039DD98 /* TestItem.swift */,
+				BCF59BAE261963BE009C11AF /* TestCell.swift */,
+				BC3DD55926226A3D0039DD98 /* TestCell2.swift */,
+			);
+			path = "Test Item";
+			sourceTree = "<group>";
+		};
 		BCA31A4F261A50260050A483 /* Paging Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,9 +163,7 @@
 		BCA31A61261A553B0050A483 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				BCF59BAE261963BE009C11AF /* TestItem.swift */,
-				BCA31A62261A554B0050A483 /* SettingsItem.swift */,
-				BC17985B261FC8C400CE68A0 /* PhotosItem.swift */,
+				BC3DD54D262269B20039DD98 /* Test Item */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -411,26 +422,27 @@
 			files = (
 				BCFC599F26211A88000D7CE1 /* ItemSelectable.swift in Sources */,
 				BCF59BB126196916009C11AF /* Stacks.swift in Sources */,
+				BC3DD55F26226ED00039DD98 /* TestModel.swift in Sources */,
 				BC3DD51D26222DF60039DD98 /* BackendDriven.swift in Sources */,
 				BCAD06A9261938D3007C89CA /* ViewController.swift in Sources */,
+				BC3DD55A26226A3D0039DD98 /* TestCell2.swift in Sources */,
 				BC3DD523262230620039DD98 /* HomeFeedService.swift in Sources */,
 				BCAD06EB26193B36007C89CA /* Section.swift in Sources */,
 				BCAD06A5261938D3007C89CA /* AppDelegate.swift in Sources */,
 				BCF59BAD26196192009C11AF /* Extensions.swift in Sources */,
 				BCA31A6B261A7D550050A483 /* TestingStacks.swift in Sources */,
-				BC17985C261FC8C400CE68A0 /* PhotosItem.swift in Sources */,
 				BCAD06A7261938D3007C89CA /* SceneDelegate.swift in Sources */,
 				BCA31A5D261A50800050A483 /* PagerCollectionViewLayout.swift in Sources */,
 				BCA5556C261BDA9B007754CD /* HorizontalItem.swift in Sources */,
 				BCF59BA726193BD0009C11AF /* Item.swift in Sources */,
 				BCF59BAA26195E81009C11AF /* ItemCellBinder.swift in Sources */,
-				BCA31A63261A554B0050A483 /* SettingsItem.swift in Sources */,
 				BCA31A4B261A4F780050A483 /* PagerItem.swift in Sources */,
 				BC3DD535262230C00039DD98 /* ItemIdentifier.swift in Sources */,
 				BCF59BA526193BBB009C11AF /* GenericArrayBuilder.swift in Sources */,
 				BCF59BB326196AAF009C11AF /* CollectionController.swift in Sources */,
 				BC3DD528262230730039DD98 /* Bundle.swift in Sources */,
-				BCF59BAF261963BE009C11AF /* TestItem.swift in Sources */,
+				BC3DD552262269CA0039DD98 /* TestItem.swift in Sources */,
+				BCF59BAF261963BE009C11AF /* TestCell.swift in Sources */,
 				BC17986C261FE3A900CE68A0 /* SpaceItem.swift in Sources */,
 				BC3DD52D262230A50039DD98 /* HomeModel.swift in Sources */,
 			);

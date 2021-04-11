@@ -9,12 +9,15 @@ import Foundation
 
 enum ItemBuilder: String, Decodable {
     
-    case testItem = "TestItem"
+    case baseTestItem = "BaseTestItem"
+    case testItem2 = "TestItem2"
 
     var metatype: DataDrivenItem.Type {
         switch self {
-        case .testItem:
-            return TestItem.self
+        case .baseTestItem:
+            return BaseTestItem.self
+        case .testItem2:
+            return TestItem2.self
         }
     }
 

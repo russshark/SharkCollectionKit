@@ -60,12 +60,7 @@ class HomeService {
             completion(self.makeSections(sectionModels: sections.sections))
         })
     }
-    
-    static func classForString(_ className: String) -> DataDrivenItem.Type? {
-        return ItemBuilder.init(rawValue: className)?.metatype
-    }
-    
-    
+
     static func makeSections(sectionModels: [SectionModel]) -> [Section]{
         var sections: [Section] = []
 
@@ -89,5 +84,6 @@ class HomeService {
         
         return items
     }
+
     
 }

@@ -4,20 +4,18 @@
             "spacing": 30,
             "items": [
                 {
-                    "id": "BaseTestItem",
-                    "title": "This ia test"
-                },
-                {
-                    "id": "TestItem2",
-                    "title": "This ia tefgf gfgfggfgst"
-                },
-                {
-                    "id": "BaseTestItem",
-                    "title": "This ia test"
-                },
-                {
-                    "id": "BaseTestItem",
-                    "title": "This ia test"
+                    "id": "GSPagerItem",
+                    "spacing": 30.0,
+                    "items": [
+                        {
+                            "id": "TestHItem",
+                            "title": "Hello world"
+                        },
+                        {
+                            "id": "TestHItem",
+                            "title": "Hello world"
+                        }
+                    ]
                 }
             ]
         }

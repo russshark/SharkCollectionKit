@@ -2,64 +2,33 @@
 //  PagingItem.swift
 //  SharkCollectionKit
 //
-//  Created by Russell Warwick on 04/04/2021.
+//  Created by Russell Warwick on 11/04/2021.
 //
 
 import UIKit
 
-class PagerItem: VItem {
-    //MARK: - Properties
+private struct PagerData: Decodable {
+    let items: [AnyItemModel]
+    let spacing: CGFloat
+}
 
-    var items: [HItem]
-    var spacing: CGFloat = .zero
-    var inset: CGFloat = .zero
-    var minVelocity: CGFloat = 2.4
-    var sectionInset: UIEdgeInsets = .zero
+final class GSPagerItem: PagerItem, DataDrivenItem {
     
     //MARK: - Init
     
-    init(){
-        self.items = []
-    }
-
-    init(@GenericArrayBuilder<HItem> items: () -> [HItem]){
-        self.items = items()
-    }
-    
-    //MARK: - VItem
-    
-    var parentSection: Section?
-    
-    var binder: ItemCellBinderType {
-        return ItemCellBinder<PagerCell, PagerItem>.init(item: self)
-    }
-
-    var estimatedHeight: CGFloat {
-        return items.compactMap({ $0.size.height }).max() ?? .zero
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
+        let data: PagerData = try .init(from: decoder)
+        self.items = HomeService.makeItems(itemModels: data.items) as? [HItem] ?? []
+        self.spacing = data.spacing
     }
     
-    // MARK: - Chaining
-    
-    @discardableResult
-    func spacing(_ spacing: CGFloat) -> Self {
-        self.spacing = spacing
-        return self
-    }
-    
-    @discardableResult
-    func inset(_ inset: CGFloat) -> Self {
-        self.inset = inset
-        return self
-    }
-    
-    @discardableResult
-    func minVelocity(_ velocity: CGFloat) -> Self {
-        self.minVelocity = velocity
-        return self
+    override var binder: ItemCellBinderType {
+        return ItemCellBinder<GSPagerCell, GSPagerItem>.init(item: self)
     }
 }
 
-final private class PagerCell: UICollectionViewCell, BindableCell {
+class GSPagerCell: UICollectionViewCell, BindableCell {
     
     //MARK: - UI
     
@@ -87,7 +56,7 @@ final private class PagerCell: UICollectionViewCell, BindableCell {
     
     //MARK: - Item
 
-    var item: PagerItem? {
+    var item: GSPagerItem? {
         didSet {
             guard let item = item, let parentSection = item.parentSection, let collectionView = parentSection.collectionView else {
                 assertionFailure("Item has no parent UICollectionView assocaiated with it. We need this to set the item size")
@@ -104,7 +73,7 @@ final private class PagerCell: UICollectionViewCell, BindableCell {
     }
 }
 
-extension PagerCell: UICollectionViewDataSource {
+extension GSPagerCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return item?.items.count ?? 0

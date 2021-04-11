@@ -13,11 +13,7 @@ final class HorizontalItem: NSObject, VItem {
     var spacing: CGFloat = .zero
     var inset: CGFloat = .zero
     var velocity: CGFloat = 1.5
-    
-    static func maker(data: String) -> Item {
-        return HorizontalItem { }
-    }
-    
+
     //MARK: - Init
     
     init(spacing: CGFloat = .zero, @GenericArrayBuilder<HItem> items: () -> [HItem]){

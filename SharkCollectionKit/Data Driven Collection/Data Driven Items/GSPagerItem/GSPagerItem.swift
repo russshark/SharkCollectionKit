@@ -7,20 +7,17 @@
 
 import UIKit
 
-private struct PagerData: Decodable {
-    let items: [AnyItemModel]
-    let spacing: CGFloat
-}
-
-final class GSPagerItem: PagerItem, DataDrivenItem {
+final class GSPagerItem: PagerItem, DataDrivenConfigurable {
     
     //MARK: - Init
     
     required convenience init(from decoder: Decoder) throws {
         self.init()
-        let data: PagerData = try .init(from: decoder)
-        self.items = HomeService.makeItems(itemModels: data.items) as? [HItem] ?? []
+        let data: GSPagerItemModel = try .init(from: decoder)
+        
+        self.items = DataDrivenSectionFactory.makeItems(itemModels: data.items) as? [HItem] ?? []
         self.spacing = data.spacing
+        self.inset(data.horizontalInset)
     }
     
     override var binder: ItemCellBinderType {
@@ -28,11 +25,11 @@ final class GSPagerItem: PagerItem, DataDrivenItem {
     }
 }
 
-class GSPagerCell: UICollectionViewCell, BindableCell {
+final class GSPagerCell: UICollectionViewCell, BindableCell {
     
     //MARK: - UI
     
-    private lazy var layout = PagerCollectionViewLayout()
+    private let layout = PagerCollectionViewLayout()
     
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout).with {
         $0.showsHorizontalScrollIndicator = false

@@ -85,8 +85,12 @@ extension Section: SectionT {
         self.collectionView = collectionView
         
         var item = items[safe: indexPath.row]
-        item?.parentSection = self
         
+        if var parentItem = item as? (Item & ItemParent) {
+            parentItem.parentSection = self
+            item = parentItem
+        }
+ 
         guard let boundItem = item,
               let cell = boundItem.binder.configure(for: collectionView, indexPath: indexPath) else { return nil }
             
@@ -115,7 +119,7 @@ extension Section: SectionT {
     func size(forRow row: Int, collectionView: UICollectionView) -> CGSize {
         guard let item = items[safe: row] else { return .zero }
         
-        if (((item as? PagerItem) != nil) || ((item as? HorizontalItem) != nil))  && numberOfColumns > 1 {
+        if (((item as? PagerItem) != nil) || ((item as? CarouselItem) != nil))  && numberOfColumns > 1 {
            assertionFailure("Pager && Horizontal items cannot exsist within a multi columned sections")
         }
         

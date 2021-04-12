@@ -7,16 +7,8 @@
 
 import UIKit
 
-protocol ItemData: Decodable {
-    
-}
-
 protocol Item {
     var binder: ItemCellBinderType { get }
-    var parentSection: Section? { get set }
-}
-
-protocol DataDrivenItem: Item, Decodable{
 }
 
 protocol VItem: Item {
@@ -26,3 +18,4 @@ protocol VItem: Item {
 protocol HItem: Item {
     var size: CGSize { get }
 }
+

@@ -7,8 +7,9 @@
 
 import UIKit
 
-class PagerItem: VItem {
-    //MARK: - Properties
+class PagerItem: VItem, ItemParent {
+    
+    // MARK: - Properties
 
     var items: [HItem]
     var spacing: CGFloat = .zero
@@ -16,7 +17,7 @@ class PagerItem: VItem {
     var minVelocity: CGFloat = 2.4
     var sectionInset: UIEdgeInsets = .zero
     
-    //MARK: - Init
+    // MARK: - Init
     
     init(){
         self.items = []
@@ -26,7 +27,7 @@ class PagerItem: VItem {
         self.items = items()
     }
     
-    //MARK: - VItem
+    // MARK: - VItem
     
     var parentSection: Section?
     
@@ -61,7 +62,7 @@ class PagerItem: VItem {
 
 final private class PagerCell: UICollectionViewCell, BindableCell {
     
-    //MARK: - UI
+    // MARK: - UI
     
     private lazy var layout = PagerCollectionViewLayout()
     
@@ -85,7 +86,7 @@ final private class PagerCell: UICollectionViewCell, BindableCell {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    //MARK: - Item
+    // MARK: - Item
 
     var item: PagerItem? {
         didSet {

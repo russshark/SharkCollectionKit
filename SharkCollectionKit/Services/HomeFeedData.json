@@ -1,21 +1,77 @@
 {
     "sections": [
         {
-            "spacing": 30,
+            "description": "This is the home pager item",
+            "spacing": 20.0,
+            "bottom-inset": 20.0,
             "items": [
                 {
-                    "id": "GSPagerItem",
-                    "spacing": 30.0,
+                    "id": "pager",
+                    "spacing": 50.0,
+                    "horizontal-inset": 20.0,
                     "items": [
                         {
                             "id": "TestHItem",
-                            "title": "Hello world"
+                            "title": "Page 1"
                         },
                         {
                             "id": "TestHItem",
-                            "title": "Hello world"
+                            "title": "Page 2"
+                        },
+                        {
+                            "id": "TestHItem",
+                            "title": "Page 3"
+                        },
+                    ]
+                }
+            ]
+        },
+        {
+            "bottom-inset": 20.0,
+            "items": [
+                {
+                    "id": "carousel",
+                    "spacing": 20.0,
+                    "horizontal-inset": 20.0,
+                    "items": [
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Mark"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Russell"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Le"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Haida"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Chris"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Vrutin"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "description": "This is the home item feed",
+            "spacing": 20.0,
+            "left-inset": 20.0,
+            "right-inset": 20.0,
+            "bottom-inset": 20.0,
+            "items": [
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
                 }
             ]
         }

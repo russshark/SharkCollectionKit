@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TestHItem: SelectableItem, HItem, DataDrivenItem {
+class TestHItem: SelectableItem, HItem, DataDrivenConfigurable {
 
     // MARK: -
     

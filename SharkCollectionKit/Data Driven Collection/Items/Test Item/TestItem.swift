@@ -27,7 +27,7 @@ struct TestViewModel {
     
 }
 
-class BaseTestItem: SelectableItem, VItem, DataDrivenItem {
+class BaseTestItem: SelectableItem, VItem, DataDrivenConfigurable {
     
     // MARK: -
     

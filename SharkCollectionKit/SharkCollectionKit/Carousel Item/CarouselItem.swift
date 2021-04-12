@@ -7,24 +7,28 @@
 
 import UIKit
 
-final class HorizontalItem: NSObject, VItem {
+class CarouselItem: VItem {
+    
+    // MARK: - Properties
 
-    let items: [HItem]
+    var items: [HItem] = []
     var spacing: CGFloat = .zero
     var inset: CGFloat = .zero
     var velocity: CGFloat = 1.5
 
     //MARK: - Init
     
+    init(){}
+    
     init(spacing: CGFloat = .zero, @GenericArrayBuilder<HItem> items: () -> [HItem]){
         self.spacing = spacing
         self.items = items()
     }
     
-    var parentSection: Section?
-    
+    // MARK: - VItem
+
     var binder: ItemCellBinderType {
-        return ItemCellBinder<HorizontalCell, HorizontalItem>.init(item: self)
+        return ItemCellBinder<HorizontalCell, CarouselItem>.init(item: self)
     }
 
     var estimatedHeight: CGFloat {
@@ -48,7 +52,7 @@ final class HorizontalItem: NSObject, VItem {
 
 final private class HorizontalCell: UICollectionViewCell, BindableCell {
     
-    //MARK: - UI
+    // MARK: - UI
         
     private lazy var collection = CollectionController(collectionView: collectionView)
     
@@ -56,12 +60,11 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
         $0.scrollDirection = .horizontal
     }
     
-    lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.alwaysBounceHorizontal = true
-        return collectionView
-    }()
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout).with {
+        $0.showsHorizontalScrollIndicator = false
+        $0.alwaysBounceHorizontal = true
+        $0.backgroundColor = .clear
+    }
     
     // MARK: -
     
@@ -76,9 +79,9 @@ final private class HorizontalCell: UICollectionViewCell, BindableCell {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    //MARK: - Item
+    // MARK: - Item
 
-    var item: HorizontalItem? {
+    var item: CarouselItem? {
         didSet {
             guard let item = item else { return }
             layout.sectionInset = UIEdgeInsets(top: .zero, left: item.inset, bottom: .zero, right: item.inset)

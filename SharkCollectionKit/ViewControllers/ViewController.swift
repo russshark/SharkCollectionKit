@@ -49,9 +49,7 @@ final class ViewController: UIViewController {
         collection.delegate = self
         view.backgroundColor = .blue
         collectionView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        collectionView.alwaysBounceVertical = true
-        collectionView.contentInset = .init(top: 40, left: 20, bottom: 0, right: 20)
-
+        collectionView.alwaysBounceVertical = true 
 
         HomeService.getHomeSections { sections in
             self.homeSections = sections

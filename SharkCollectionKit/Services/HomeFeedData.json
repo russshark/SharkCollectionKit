@@ -72,6 +72,98 @@
                 {
                     "id": "TestItem2",
                     "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                },
+                {
+                    "id": "TestItem2",
+                    "title": "This is a test"
+                }
+            ]
+        },
+        {
+            "bottom-inset": 20.0,
+            "items": [
+                {
+                    "id": "carousel",
+                    "spacing": 20.0,
+                    "horizontal-inset": 20.0,
+                    "items": [
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Mark"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Russell"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Le"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Haida"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Chris"
+                        },
+                        {
+                            "id": "ProfilePictureItem",
+                            "title": "Vrutin"
+                        }
+                    ]
                 }
             ]
         }
